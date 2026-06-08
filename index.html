@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ehsan Products — Pure Herbal, Trusted Healing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f7f3ec;
+  --forest:#1a3a2a;
+  --moss:#2d5a3d;
+  --sage:#7aab6e;
+  --gold:#c9a84c;
+  --water:#4fb8d4;
+  --text:#1e2a1e;
+  --text-light:#4a6352;
+  --black:#000000;
+  --gray:#6F6F6F;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--black);overflow-x:hidden}
+
+/* ===== FADE-RISE ANIMATIONS (STATIC) ===== */
+.animate-fade-rise,
+.animate-fade-rise-delay,
+.animate-fade-rise-delay-2{
+  opacity:1;
+  transform:none;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-wrapper{
+  position:relative;
+  min-height:100vh;
+  width:100%;
+  overflow:hidden;
+  background:#ffffff;
+}
+
+/* Video layer */
+.video-layer{
+  position:absolute;
+  inset:auto 0 0 0;
+  top:300px;
+  z-index:0;
+  overflow:hidden;
+}
+#heroVideo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:none;
+}
+
+/* Gradient overlays on video */
+.video-gradient-top{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,#ffffff 0%,transparent 50%,#ffffff 100%);
+  z-index:1;
+  pointer-events:none;
+}
+
+/* Nav */
+.hero-nav{
+  position:relative;
+  z-index:10;
+  padding:1.5rem 2rem;
+  max-width:80rem;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo-text{
+  font-family:'Instrument Serif',serif;
+  font-size:1.875rem;
+  letter-spacing:-0.025em;
+  color:#000000;
+  text-decoration:none;
+}
+.nav-logo-text sup{font-size:0.6em;vertical-align:super}
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  list-style:none;
+}
+.nav-menu a{
+  font-family:'Inter',sans-serif;
+  font-size:0.875rem;
+  text-decoration:none;
+  color:var(--gray);
+  transition:color 0.2s;
+}
+.nav-menu a:hover{color:#000}
+.nav-menu .active a{color:#000000}
+.nav-cta-btn{
+  font-family:'Inter',sans-serif;
+  font-size:0.875rem;
+  background:#000000;
+  color:#ffffff;
+  border:none;
+  padding:0.625rem 1.5rem;
+  border-radius:9999px;
+  cursor:pointer;
+  transition:transform 0.2s;
+  letter-spacing:0.01em;
+}
+.nav-cta-btn:hover{transform:scale(1.03)}
+
+/* Hero content */
+.hero-content{
+  position:relative;
+  z-index:10;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-left:1.5rem;
+  padding-right:1.5rem;
+  padding-top:calc(8rem - 75px);
+  padding-bottom:10rem;
+}
+.hero-headline{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2.8rem,8vw,6rem);
+  font-weight:400;
+  line-height:0.95;
+  letter-spacing:-0.046em;
+  color:#000000;
+  max-width:72rem;
+  margin:0 auto;
+}
+.hero-headline em{
+  font-style:italic;
+  color:var(--gray);
+}
+.hero-desc{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(0.95rem,2vw,1.125rem);
+  color:var(--gray);
+  max-width:42rem;
+  margin-top:2rem;
+  line-height:1.7;
+  font-weight:300;
+}
+.hero-cta{
+  font-family:'Inter',sans-serif;
+  font-size:1rem;
+  background:#000000;
+  color:#ffffff;
+  border:none;
+  padding:1.25rem 3.5rem;
+  border-radius:9999px;
+  cursor:pointer;
+  margin-top:3rem;
+  transition:transform 0.2s;
+  letter-spacing:0.01em;
+}
+.hero-cta:hover{transform:scale(1.03)}
+
+/* ===== PRODUCTS STRIP in hero ===== */
+.products-strip{
+  position:relative;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  gap:2.5rem;
+  flex-wrap:wrap;
+  padding:0 2rem 5rem;
+  margin-top:-2rem;
+}
+.product-pill{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:20px;
+  padding:1.5rem;
+  display:flex;
+  align-items:center;
+  gap:1.2rem;
+  max-width:340px;
+  transition:transform 0.3s,box-shadow 0.3s;
+  cursor:pointer;
+}
+.product-pill:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.1);
+}
+.product-pill img{
+  width:80px;
+  height:100px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+.product-pill-info{}
+.product-pill-tag{
+  font-size:0.68rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:0.3rem;
+}
+.product-pill-name{
+  font-family:'Instrument Serif',serif;
+  font-size:1.25rem;
+  color:#000;
+  margin-bottom:0.3rem;
+}
+.product-pill-desc{
+  font-size:0.78rem;
+  color:var(--gray);
+  line-height:1.5;
+  font-weight:300;
+}
+.product-pill-badge{
+  display:inline-block;
+  margin-top:0.6rem;
+  background:#000;
+  color:#fff;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.3rem 0.8rem;
+  border-radius:9999px;
+}
+
+
+
+/* ===== TRUST STRIP ===== */
+.trust-strip{
+  background:#000;
+  padding:1rem 4vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:3rem;
+  flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  color:rgba(255,255,255,0.6);
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+}
+.trust-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ===== ABOUT ===== */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:70vh;
+}
+.about-visual{
+  position:relative;
+  background:#0e1f12;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:480px;
+}
+.about-img{width:100%;height:100%;object-fit:cover;display:block}
+.about-content{
+  padding:6rem 5vw;
+  background:var(--cream);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.section-label{
+  font-family:'Inter',sans-serif;
+  font-size:0.72rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:1rem;
+}
+.section-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:400;
+  line-height:1.1;
+  color:var(--forest);
+  margin-bottom:1.5rem;
+}
+.section-title em{font-style:italic;color:var(--moss)}
+.about-text{
+  color:var(--text-light);
+  line-height:1.9;
+  font-weight:300;
+  font-size:0.96rem;
+  margin-bottom:1.2rem;
+  font-family:'Inter',sans-serif;
+}
+.certs{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+.cert-badge{
+  border:1px solid rgba(42,90,61,0.3);
+  padding:0.4rem 0.9rem;
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--moss);
+  border-radius:9999px;
+  font-family:'Inter',sans-serif;
+}
+
+/* ===== PRODUCTS FULL ===== */
+.products{padding:6rem 4vw;background:#f9f6f1}
+.products-header{text-align:center;margin-bottom:4rem}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem;
+  max-width:900px;
+  margin:0 auto;
+}
+.product-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.4s,box-shadow 0.4s;
+  cursor:pointer;
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.1)}
+.product-img-wrap{
+  height:280px;
+  background:#f5f0e8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+}
+.product-img-wrap img{max-height:220px;max-width:100%;object-fit:contain;transition:transform 0.5s}
+.product-card:hover .product-img-wrap img{transform:scale(1.05)}
+.product-info{padding:1.5rem 1.8rem 2rem}
+.product-tag{
+  font-size:0.68rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:0.4rem;
+  font-family:'Inter',sans-serif;
+}
+.product-name{
+  font-family:'Instrument Serif',serif;
+  font-size:1.5rem;
+  color:#000;
+  margin-bottom:0.6rem;
+}
+.product-desc{
+  color:var(--gray);
+  font-size:0.87rem;
+  line-height:1.7;
+  font-weight:300;
+  margin-bottom:1.2rem;
+  font-family:'Inter',sans-serif;
+}
+.product-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:0.75rem;
+  color:var(--gray);
+  border-top:1px solid rgba(0,0,0,0.06);
+  padding-top:1rem;
+  font-family:'Inter',sans-serif;
+}
+.product-shop-btn{
+  background:#000;
+  color:#fff;
+  padding:0.4rem 1rem;
+  font-size:0.7rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  border:none;
+  border-radius:9999px;
+  cursor:pointer;
+  transition:opacity 0.2s;
+  font-family:'Inter',sans-serif;
+}
+.product-shop-btn:hover{opacity:0.75}
+
+/* ===== WHY US ===== */
+.why{padding:7rem 4vw;background:var(--forest);position:relative;overflow:hidden}
+.why::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 100%,rgba(122,171,110,0.08),transparent 70%);
+}
+.why-inner{position:relative;max-width:1100px;margin:0 auto}
+.why-header{text-align:center;margin-bottom:4rem}
+.why-header .section-label{color:rgba(122,171,110,0.7)}
+.why-header .section-title{color:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.why-card{
+  padding:2rem;
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;
+  transition:background 0.3s,border-color 0.3s;
+}
+.why-card:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.14)}
+.why-icon{width:44px;height:44px;margin-bottom:1.1rem}
+.why-card-title{
+  font-family:'Instrument Serif',serif;
+  font-size:1.25rem;
+  color:#fff;
+  margin-bottom:0.6rem;
+}
+.why-card-text{color:rgba(255,255,255,0.5);font-size:0.84rem;line-height:1.8;font-weight:300;font-family:'Inter',sans-serif}
+
+/* ===== PROCESS ===== */
+.process{padding:7rem 4vw;background:#fff}
+.process-inner{max-width:900px;margin:0 auto}
+.process-header{text-align:center;margin-bottom:4rem}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0}
+.process-step{text-align:center;padding:2rem 1.5rem;position:relative}
+.process-step:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:50%;width:1px;height:40%;
+  background:rgba(0,0,0,0.08);transform:translateY(-50%);
+}
+.step-num{
+  font-family:'Instrument Serif',serif;
+  font-size:3.5rem;
+  font-weight:400;
+  color:rgba(0,0,0,0.07);
+  line-height:1;
+  margin-bottom:0.5rem;
+}
+.step-title{
+  font-family:'Instrument Serif',serif;
+  font-size:1.1rem;
+  color:#000;
+  margin-bottom:0.5rem;
+}
+.step-text{color:var(--gray);font-size:0.82rem;line-height:1.7;font-weight:300;font-family:'Inter',sans-serif}
+
+/* ===== CTA BANNER ===== */
+.cta-banner{
+  padding:6rem 4vw;
+  background:#000;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(201,168,76,0.08),transparent 65%);
+  border-radius:50%;pointer-events:none;
+}
+.cta-banner .section-label{color:rgba(122,171,110,0.6)}
+.cta-banner .section-title{color:#fff;margin-bottom:1rem}
+.cta-banner p{color:rgba(255,255,255,0.45);font-size:0.95rem;font-weight:300;max-width:480px;margin:0 auto 2.5rem;font-family:'Inter',sans-serif}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-white{
+  background:#fff;color:#000;border:none;
+  padding:0.9rem 2.2rem;border-radius:9999px;
+  font-family:'Inter',sans-serif;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;transition:opacity 0.2s;
+}
+.btn-white:hover{opacity:0.88}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,0.6);
+  border:1px solid rgba(255,255,255,0.2);
+  padding:0.9rem 2.2rem;border-radius:9999px;
+  font-family:'Inter',sans-serif;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;transition:border-color 0.2s,color 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:#fff}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#0a0a0a;
+  padding:3.5rem 4vw 1.5rem;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:3rem;
+}
+.footer-logo{
+  font-family:'Instrument Serif',serif;
+  font-size:1.4rem;
+  color:#fff;
+  display:block;
+  margin-bottom:0.8rem;
+}
+.footer-logo sup{font-size:0.6em}
+.footer-brand p{color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;font-family:'Inter',sans-serif}
+.footer-col h4{
+  font-family:'Inter',sans-serif;
+  font-size:0.68rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:1.1rem;
+}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:0.55rem}
+.footer-col a{
+  color:rgba(255,255,255,0.55);
+  text-decoration:none;
+  font-size:0.85rem;
+  transition:color 0.2s;
+  font-family:'Inter',sans-serif;
+  cursor:pointer;
+}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.05);
+  padding-top:1.5rem;
+  margin-top:1.5rem;
+  text-align:center;
+  color:rgba(255,255,255,0.2);
+  font-size:0.75rem;
+  grid-column:1/-1;
+  font-family:'Inter',sans-serif;
+}
+
+/* ===== MODALS ===== */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.8);
+  animation:fadeIn 0.3s ease;
+}
+.modal.active{display:flex;align-items:center;justify-content:center}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+.modal-content{
+  background-color:#f7f3ec;
+  padding:3rem;
+  border-radius:8px;
+  width:90%;
+  max-width:700px;
+  max-height:80vh;
+  overflow-y:auto;
+  position:relative;
+  animation:slideUp 0.3s ease;
+}
+@keyframes slideUp{
+  from{transform:translateY(50px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+.modal-close{
+  position:absolute;
+  right:1.5rem;
+  top:1.5rem;
+  font-size:2rem;
+  font-weight:bold;
+  color:var(--forest);
+  cursor:pointer;
+  background:none;
+  border:none;
+  transition:color 0.2s;
+}
+.modal-close:hover{color:var(--moss)}
+.modal-content h2{
+  color:var(--forest);
+  margin-bottom:1.5rem;
+  font-size:1.75rem;
+  font-family:'Instrument Serif',serif;
+}
+.modal-content h3{
+  color:var(--moss);
+  margin-top:1.5rem;
+  margin-bottom:1rem;
+  font-size:1.25rem;
+}
+.modal-content h4{
+  color:var(--moss);
+  margin-top:1.25rem;
+  margin-bottom:0.75rem;
+  font-size:1rem;
+  font-weight:600;
+}
+.modal-content p{
+  color:var(--text);
+  line-height:1.8;
+  margin-bottom:1rem;
+  font-size:0.95rem;
+}
+.modal-content ul{
+  margin-left:1.5rem;
+  margin-bottom:1rem;
+}
+.modal-content li{
+  color:var(--text);
+  margin-bottom:0.5rem;
+  line-height:1.6;
+}
+.modal-content strong{color:var(--forest)}
+
+/* ===== SCROLL REVEAL (STATIC) ===== */
+.reveal{opacity:1;transform:none}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .about{grid-template-columns:1fr}
+  .about-visual{min-height:300px}
+  footer{grid-template-columns:1fr}
+  .process-step:not(:last-child)::after{display:none}
+  .nav-menu{display:none}
+  .products-strip{gap:1.2rem}
+}
+@media(max-width:600px){
+  .hero-nav{padding:1rem}
+  .nav-cta-btn{display:none}
+  .products-strip{padding:0 1rem 3rem}
+  .product-pill{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== CINEMATIC HERO ===== -->
+<div class="hero-wrapper">
+
+  <!-- Video Background -->
+  <div class="video-layer">
+    <video id="heroVideo" muted playsinline preload="auto" style="opacity:0">
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4" type="video/mp4">
+    </video>
+    <div class="video-gradient-top"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="hero-nav">
+    <a href="#" class="nav-logo-text">Ehsan<sup>®</sup></a>
+    <ul class="nav-menu">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Reach Us</a></li>
+    </ul>
+    <button class="nav-cta-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+  </nav>
+
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <h1 class="hero-headline animate-fade-rise">
+      Beyond purity, we craft <em>the eternal</em><br>path to natural <em>healing.</em>
+    </h1>
+    <p class="hero-desc animate-fade-rise-delay">
+      Building trust through certified Ayurvedic formulations for brilliant minds and healing souls. Through the noise, we craft remedies rooted in nature's deepest wisdom.
+    </p>
+    <button class="hero-cta animate-fade-rise-delay-2" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Products</button>
+  </div>
+
+
+</div>
+
+<!-- ===== TRUST STRIP ===== -->
+<div class="trust-strip">
+  <div class="trust-item"><span class="trust-dot"></span>GMP Certified</div>
+  <div class="trust-item"><span class="trust-dot"></span>ISO 9001 Approved</div>
+  <div class="trust-item"><span class="trust-dot"></span>100% Herbal</div>
+  <div class="trust-item"><span class="trust-dot"></span>No Chemicals</div>
+  <div class="trust-item"><span class="trust-dot"></span>AYUSH Registered</div>
+  <div class="trust-item"><span class="trust-dot"></span>Amazon Verified</div>
+</div>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="products" id="products">
+  <div class="products-header reveal">
+    <p class="section-label">Our Formulations</p>
+    <h2 class="section-title" style="color:#000;text-align:center">Shop Our Products</h2>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-img-wrap">
+        <img src="ayugra.jpg" alt="Ayugra Men's Wellness">
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Men's Wellness</p>
+        <h3 class="product-name">Ayugra</h3>
+        <div class="product-rating" style="margin-bottom:0.5rem;font-size:0.85rem;color:var(--gold)">
+          ★★★★★ <span style="color:var(--gray);margin-left:0.25rem">(4.8 / 5)</span>
+        </div>
+        <p class="product-desc">A powerful Ayurvedic formulation crafted to enhance men's vitality, stamina, and overall wellness. Made with potent herbal extracts. GMP certified, ISO approved.</p>
+        <div class="product-meta">
+          <div class="product-price-box" style="display:flex;flex-direction:column">
+            <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹399</span>
+            <span class="product-weight" style="font-size:0.75rem;color:var(--gray)">Net Wt. 100g</span>
+          </div>
+          <button class="product-shop-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img-wrap" style="background:#f0f8f0">
+        <img src="piles_cure_plus.jpg" alt="Piles Cure Plus">
+      </div>
+      <div class="product-info">
+        <p class="product-tag">Digestive Health</p>
+        <h3 class="product-name">Piles Cure Plus</h3>
+        <div class="product-rating" style="margin-bottom:0.5rem;font-size:0.85rem;color:var(--gold)">
+          ★★★★★ <span style="color:var(--gray);margin-left:0.25rem">(4.9 / 5)</span>
+        </div>
+        <p class="product-desc">Results start in only one hour. A natural, non-surgical herbal remedy for complete piles relief. Cure without operation — certified and clinically trusted.</p>
+        <div class="product-meta">
+          <div class="product-price-box" style="display:flex;flex-direction:column">
+            <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹499</span>
+            <span class="product-weight" style="font-size:0.75rem;color:var(--gray)">Net Wt. 100g</span>
+          </div>
+          <button class="product-shop-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="about-visual">
+    <img src="about_herbs.png" alt="Fresh Herbs" class="about-img">
+  </div>
+  <div class="about-content reveal">
+    <p class="section-label">Our Philosophy</p>
+    <h2 class="section-title">Where Ancient<br><em>Wisdom Meets</em><br>Modern Science</h2>
+    <p class="about-text">
+      Ehsan Products was founded with one unwavering belief — that nature holds the cure. We source the finest herbs, roots, and botanicals from pristine regions across India.
+    </p>
+    <p class="about-text">
+      Every formulation is a careful blend of centuries-old Ayurvedic texts and contemporary clinical research. Pure, effective, and trustworthy — always.
+    </p>
+    <div class="certs">
+      <span class="cert-badge">GMP Certified</span>
+      <span class="cert-badge">ISO 9001</span>
+      <span class="cert-badge">AYUSH Approved</span>
+      <span class="cert-badge">Amazon Verified</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-header reveal">
+      <p class="section-label">Why Choose Us</p>
+      <h2 class="section-title">Pure. Potent. <em style="font-style:italic;color:rgba(122,171,110,0.8)">Proven.</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="22" r="18" stroke="#7aab6e" stroke-width="1"/>
+          <path d="M14 26c2-6 8-10 14-6" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h3 class="why-card-title">Ethically Sourced</h3>
+        <p class="why-card-text">Herbs gathered from certified organic farms with full traceability from root to remedy.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+          <rect x="7" y="11" width="30" height="24" rx="3" stroke="#7aab6e" stroke-width="1"/>
+          <path d="M15 23l5 5 9-9" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="why-card-title">Lab Tested Quality</h3>
+        <p class="why-card-text">Every batch independently verified for purity, potency, and safety before it reaches you.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+          <path d="M22 7c-8 0-13 5.5-13 13s5 13 13 13 13-5 13-13S30 7 22 7z" stroke="#7aab6e" stroke-width="1"/>
+          <path d="M18 22c1 3 3 5 4 5s3-2 4-5" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h3 class="why-card-title">Ayurvedic Expertise</h3>
+        <p class="why-card-text">Formulated by experienced practitioners with decades of clinical and heritage knowledge.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+          <path d="M22 9l2.8 6.5H36l-9 6.5 3.4 10.5L22 27l-8.4 5.5L17 22 8 15.5h11.2z" stroke="#c9a84c" stroke-width="1" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="why-card-title">Proven Results</h3>
+        <p class="why-card-text">Thousands of satisfied customers across India — real people, real healing, real transformation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-header reveal">
+      <p class="section-label" style="color:var(--sage)">How We Create</p>
+      <h2 class="section-title" style="color:#000;text-align:center">From Forest<br><em>to Your Home</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Wild Harvest</h3>
+        <p class="step-text">Rare herbs collected at peak potency from certified organic and wild-crafted sources</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Sun Drying</h3>
+        <p class="step-text">Traditional slow-drying preserves vital phytochemicals and therapeutic compounds</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Lab Testing</h3>
+        <p class="step-text">Third-party laboratory verification for purity, potency, and zero contaminants</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <h3 class="step-title">GMP Packing</h3>
+        <p class="step-text">Sealed in hygienic tamper-evident packaging at our ISO-certified facility</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner" id="contact">
+  <p class="section-label">Start Your Journey</p>
+  <h2 class="section-title">Ready to Experience<br><em style="font-style:italic;color:rgba(122,171,110,0.7)">Natural Healing?</em></h2>
+  <p>Browse our range of certified herbal formulations. Available on Amazon India and through our verified retail partners.</p>
+  <div class="cta-btns">
+    <button class="btn-white">Shop on Amazon</button>
+    <button class="btn-ghost">Contact Us</button>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">
+    <span class="footer-logo">Ehsan<sup>®</sup> Products</span>
+    <p>Manufacturer & seller of certified herbal medicines rooted in Ayurvedic tradition. GMP certified, ISO approved. Made in India.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Products</h4>
+    <ul>
+      <li><a href="#">Ayugra — Men's Wellness</a></li>
+      <li><a href="#">Piles Cure Plus</a></li>
+      <li><a href="#">View All Products</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="#">About Ehsan</a></li>
+      <li><a href="#">Certifications</a></li>
+      <li><a href="#">Amazon Store</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Policies</h4>
+    <ul>
+      <li><a href="#" onclick="openModal('shippingModal'); return false;">Shipping Policy</a></li>
+      <li><a href="#" onclick="openModal('privacyModal'); return false;">Privacy Policy</a></li>
+      <li><a href="#" onclick="openModal('refundModal'); return false;">Return & Refund</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Ehsan Products. All rights reserved. · GMP Certified · ISO Approved · Made in India
+  </div>
+</footer>
+
+<!-- ===== POLICY MODALS ===== -->
+<!-- Shipping Policy Modal -->
+<div id="shippingModal" class="modal" onclick="closeModalOnBackground(event, 'shippingModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('shippingModal')">&times;</button>
+    <h2>Shipping Policy</h2>
+    <p>At Ehsan Products, we take pride in our Policy. To ensure your pieces arrive safely, please review our shipping guidelines below.</p>
+    
+    <h4>1. Delivery Timeframe</h4>
+    <p><strong>Standard Shipping:</strong> All orders are processed and shipped via our courier partners. Please allow 7–10 business days for your product to be delivered to your doorstep.</p>
+    <p><strong>Processing Time:</strong> Orders are typically prepared for dispatch within 24–48 hours of your purchase. You will receive an email confirmation once your order is on its way.</p>
+    
+    <h4>2. Shipping Rates</h4>
+    <p>Shipping costs are calculated at checkout based on the weight of your order and your delivery location.</p>
+    <p>We occasionally offer promotional free shipping on orders above a certain value—keep an eye on our homepage for updates!</p>
+    
+    <h4>3. Order Tracking</h4>
+    <p>Once your order has been shipped, we will provide you with a Tracking Number via email. You can use this to monitor your shipment's progress in real-time.</p>
+    
+    <h4>4. Packaging & Safety</h4>
+    <p>Because our products are housed in glass jars and contain herbal ingredients, we use specialized, eco-friendly protective packaging to prevent breakage and maintain temperature stability during the 7–10 day transit period.</p>
+    
+    <h4>5. Address Accuracy</h4>
+    <p>Please ensure your shipping address is entered correctly. Ehsan Products is not responsible for delayed or undelivered packages due to incorrect or incomplete address information provided at the time of checkout.</p>
+    
+    <h4>6. Damaged or Leaking Goods</h4>
+    <p>If your package arrives damaged during the 7–10 day journey, please take a photo immediately and contact us at <strong>support@ehsanproducts.com</strong> within 24 hours of delivery. We will prioritize sending you a fresh replacement.</p>
+  </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="privacyModal" class="modal" onclick="closeModalOnBackground(event, 'privacyModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+    <h2>Privacy Policy</h2>
+    <p><strong>Effective Date: 2026</strong></p>
+    <p>At Ehsan Products, we value your trust as much as we value our formulations. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.</p>
+    
+    <h3>1. Information We Collect</h3>
+    <p>When you make a purchase or attempt to make a purchase through Ehsan Products, we collect certain information from you, including:</p>
+    <ul>
+      <li><strong>Order Information:</strong> Name, billing address, shipping address, and payment information (including credit card numbers or UPI IDs).</li>
+      <li><strong>Contact Information:</strong> Email address and phone number.</li>
+      <li><strong>Device Information:</strong> We automatically collect certain information about your device, including your web browser, IP address, and time zone.</li>
+    </ul>
+    
+    <h3>2. How We Use Your Information</h3>
+    <p>We use the Order Information that we collect generally to fulfill any orders placed through the site, which includes:</p>
+    <ul>
+      <li>Processing your payment information.</li>
+      <li>Arranging for shipping (sharing your address with our courier partners).</li>
+      <li>Providing you with invoices and/or order confirmations.</li>
+      <li>Communicating with you about your order status.</li>
+    </ul>
+    
+    <h3>3. Sharing Your Information</h3>
+    <p>We share your Personal Information with third parties only to help us use your information as described above. For example:</p>
+    <ul>
+      <li><strong>Logistics Partners:</strong> We share your name, address, and phone number with our delivery partners to ensure your products arrive within the 7-10 day window.</li>
+      <li><strong>Payment Processors:</strong> Your payment details are processed through secure, encrypted gateways; we do not store your full credit card details on our servers.</li>
+    </ul>
+    
+    <h3>4. Data Retention</h3>
+    <p>When you place an order through Ehsan Products, we will maintain your Order Information for our records unless and until you ask us to delete this information.</p>
+    
+    <h3>5. Security</h3>
+    <p>We take reasonable precautions and follow industry best practices to make sure your personal information is not inappropriately lost, misused, accessed, disclosed, altered, or destroyed.</p>
+    
+    <h3>6. Your Rights</h3>
+    <p>If you would like to access, correct, amend, or delete any personal information we have about you, or simply want more information, please contact us at support@ehsanproducts.com.</p>
+    
+    <h3>7. Changes to This Policy</h3>
+    <p>We may update this privacy policy from time to time in order to reflect changes to our practices or for other operational, legal, or regulatory reasons.</p>
+    
+    <p><strong>Contact Us:</strong> For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at support@ehsanproducts.com.</p>
+  </div>
+</div>
+
+<!-- Return & Refund Policy Modal -->
+<div id="refundModal" class="modal" onclick="closeModalOnBackground(event, 'refundModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('refundModal')">&times;</button>
+    <h2>Return & Refund Policy</h2>
+    <p>We do not offer any return or refund. Please check all details carefully before placing your order.</p>
+    
+    <h3>Exchange Policy</h3>
+    <p>Exchange requests must be raised within 4 days of product delivery.</p>
+    <p>After the request is approved, the exchanged product will be delivered within 7 days.</p>
+  </div>
+</div>
+
+<script>
+// ====== CINEMATIC VIDEO FADE LOOP ======
+(function() {
+  const video = document.getElementById('heroVideo');
+  if (!video) return;
+  const FADE_DURATION = 0.5; // seconds
+  let rafId = null;
+
+  function setOpacity(v) {
+    video.style.opacity = v;
+  }
+
+  function tick() {
+    if (!video.duration || isNaN(video.duration)) { rafId = requestAnimationFrame(tick); return; }
+    const t = video.currentTime;
+    const d = video.duration;
+    if (t < FADE_DURATION) {
+      setOpacity(t / FADE_DURATION);
+    } else if (t > d - FADE_DURATION) {
+      setOpacity((d - t) / FADE_DURATION);
+    } else {
+      setOpacity(1);
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  video.addEventListener('ended', function() {
+    setOpacity(0);
+    setTimeout(function() {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }, 100);
+  });
+
+  video.addEventListener('canplay', function() {
+    video.play().then(function() {
+      setOpacity(0);
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(tick);
+    }).catch(function() {
+      setOpacity(0.85);
+    });
+  }, { once: true });
+
+  video.load();
+})();
+
+// ====== MODAL FUNCTIONS ======
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+}
+
+function closeModalOnBackground(event, modalId) {
+  if (event.target.id === modalId) {
+    closeModal(modalId);
+  }
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.modal.active').forEach(modal => {
+      modal.classList.remove('active');
+    });
+    document.body.style.overflow = 'auto';
+  }
+});
+</script>
+</body>
+</html>

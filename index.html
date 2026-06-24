@@ -233,8 +233,6 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--black);overflow-
   border-radius:9999px;
 }
 
-
-
 /* ===== TRUST STRIP ===== */
 .trust-strip{
   background:#000;
@@ -1065,6 +1063,203 @@ footer{
   .products-strip{padding:0 1rem 3rem}
   .product-pill{max-width:100%}
 }
+.whatsapp-btn {
+  background: #25D366 !important;
+  color: #ffffff !important;
+}
+.whatsapp-btn:hover {
+  background: #128C7E !important;
+  transform: translateY(-1px);
+}
+
+/* ===== FLOATING WHATSAPP FAB ===== */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: fabPulse 2.5s infinite;
+}
+.fab-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.18);
+  animation: none;
+}
+.fab-whatsapp svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+@keyframes fabPulse {
+  0%   { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.35); }
+  70%  { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0); }
+  100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* ===== CHECKOUT 2-STEP MODAL ===== */
+.checkout-step {
+  display: none;
+}
+.checkout-step.active {
+  display: block;
+}
+.checkout-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.step-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.step-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.3rem;
+  color: var(--forest);
+}
+.checkout-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+.step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.15);
+  transition: background 0.3s;
+}
+.step-dot.active {
+  background: var(--forest);
+  width: 22px;
+  border-radius: 4px;
+}
+.step-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+}
+/* Step 1 – product card */
+.s1-product-card {
+  display: flex;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 14px;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.s1-product-img {
+  width: 72px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--cream);
+  padding: 0.4rem;
+  flex-shrink: 0;
+}
+.s1-product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.s1-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray);
+}
+.s1-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.25rem;
+  color: #000;
+  line-height: 1.2;
+}
+.s1-weight {
+  font-size: 0.7rem;
+  color: var(--gray);
+}
+.s1-desc {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-top: 0.2rem;
+}
+.s1-qty-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.s1-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+/* Price breakdown */
+.s1-price-breakdown {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.s1-pr {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  padding: 0.35rem 0;
+}
+.s1-pr.total {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  margin-top: 0.25rem;
+  padding-top: 0.6rem;
+}
+/* Step 2 form tweaks for mobile */
+@media(max-width: 600px) {
+  .checkout-modal-content {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    border-radius: 14px 14px 0 0;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .s1-product-img {
+    width: 60px;
+    height: 76px;
+  }
+  .s1-name {
+    font-size: 1.1rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -1082,15 +1277,15 @@ footer{
 
   <!-- Nav -->
   <nav class="hero-nav">
-    <a href="#" class="nav-logo-text">Ehsan<sup>®</sup></a>
+    <a href="index.html" class="nav-logo-text">Ehsan<sup>®</sup></a>
     <ul class="nav-menu">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#contact">Reach Us</a></li>
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about_us.html">About</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#contact">Reach Us</a></li>
     </ul>
-    <button class="nav-cta-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+    <button class="nav-cta-btn" onclick="window.location.href='products.html'">Shop Now</button>
   </nav>
 
   <!-- Hero Content -->
@@ -1101,7 +1296,7 @@ footer{
     <p class="hero-desc animate-fade-rise-delay">
       Building trust through certified Ayurvedic formulations for brilliant minds and healing souls. Through the noise, we craft remedies rooted in nature's deepest wisdom.
     </p>
-    <button class="hero-cta animate-fade-rise-delay-2" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Shop Products</button>
+    <button class="hero-cta animate-fade-rise-delay-2" onclick="window.location.href='products.html'">Shop Products</button>
   </div>
 
 
@@ -1114,7 +1309,6 @@ footer{
   <div class="trust-item"><span class="trust-dot"></span>100% Herbal</div>
   <div class="trust-item"><span class="trust-dot"></span>No Chemicals</div>
   <div class="trust-item"><span class="trust-dot"></span>AYUSH Registered</div>
-  <div class="trust-item"><span class="trust-dot"></span>Amazon Verified</div>
 </div>
 
 <!-- ===== PRODUCTS ===== -->
@@ -1124,7 +1318,7 @@ footer{
     <h2 class="section-title" style="color:#000;text-align:center">Shop Our Products</h2>
   </div>
   <div class="products-grid">
-    <div class="product-card reveal">
+    <div class="product-card reveal" id="product-ayugra" onclick="openCheckout('Ayugra', 'Men\'s Wellness', 399, 'ayugra.jpg', 'Net Wt. 100g', 'Premium capsule formulation designed to naturally boost male strength, stamina, and energy. It helps reduce fatigue and supports overall rejuvenation.')">
       <div class="product-img-wrap">
         <img src="ayugra.jpg" alt="Ayugra Men's Wellness">
       </div>
@@ -1137,14 +1331,14 @@ footer{
         <p class="product-desc">A powerful Ayurvedic formulation crafted to enhance men's vitality, stamina, and overall wellness. Made with potent herbal extracts. GMP certified, ISO approved.</p>
         <div class="product-meta">
           <div class="product-price-box" style="display:flex;flex-direction:column">
-            <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹399</span>
+            <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹399 <span style="font-size:0.75rem;font-weight:normal;color:var(--gray)">+ ₹60 delivery</span></span>
             <span class="product-weight" style="font-size:0.75rem;color:var(--gray)">Net Wt. 100g</span>
           </div>
-          <button class="product-shop-btn" onclick="openCheckout('Ayugra', 'Men\'s Wellness', 399, 'ayugra.jpg', 'Net Wt. 100g')">Buy Now</button>
+          <button class="product-shop-btn" onclick="event.stopPropagation(); openCheckout('Ayugra', 'Men\'s Wellness', 399, 'ayugra.jpg', 'Net Wt. 100g', 'Premium capsule formulation designed to naturally boost male strength, stamina, and energy. It helps reduce fatigue and supports overall rejuvenation.')">Buy Now</button>
         </div>
       </div>
     </div>
-    <div class="product-card reveal">
+    <div class="product-card reveal" id="product-piles-cure-plus" onclick="openCheckout('Piles Cure Plus', 'Digestive Health', 499, 'piles_cure_plus.jpg', 'Net Wt. 100g', 'A rapid-action non-surgical herbal remedy providing relief from pain, swelling, and bleeding of piles. Promotes healthy digestion.')">
       <div class="product-img-wrap" style="background:#f0f8f0">
         <img src="piles_cure_plus.jpg" alt="Piles Cure Plus">
       </div>
@@ -1157,10 +1351,10 @@ footer{
         <p class="product-desc">Results start in only one hour. A natural, non-surgical herbal remedy for complete piles relief. Cure without operation — certified and clinically trusted.</p>
         <div class="product-meta">
           <div class="product-price-box" style="display:flex;flex-direction:column">
-            <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹499</span>
+            <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹499 <span style="font-size:0.75rem;font-weight:normal;color:var(--gray)">+ ₹60 delivery</span></span>
             <span class="product-weight" style="font-size:0.75rem;color:var(--gray)">Net Wt. 100g</span>
           </div>
-          <button class="product-shop-btn" onclick="openCheckout('Piles Cure Plus', 'Digestive Health', 499, 'piles_cure_plus.jpg', 'Net Wt. 100g')">Buy Now</button>
+          <button class="product-shop-btn" onclick="event.stopPropagation(); openCheckout('Piles Cure Plus', 'Digestive Health', 499, 'piles_cure_plus.jpg', 'Net Wt. 100g', 'A rapid-action non-surgical herbal remedy providing relief from pain, swelling, and bleeding of piles. Promotes healthy digestion.')">Buy Now</button>
         </div>
       </div>
     </div>
@@ -1188,7 +1382,6 @@ footer{
       <span class="cert-badge">GMP Certified</span>
       <span class="cert-badge">ISO 9001</span>
       <span class="cert-badge">AYUSH Approved</span>
-      <span class="cert-badge">Amazon Verified</span>
     </div>
   </div>
 </section>
@@ -1272,10 +1465,10 @@ footer{
 <section class="cta-banner" id="contact">
   <p class="section-label">Start Your Journey</p>
   <h2 class="section-title">Ready to Experience<br><em style="font-style:italic;color:rgba(122,171,110,0.7)">Natural Healing?</em></h2>
-  <p>Browse our range of certified herbal formulations. Available on Amazon India and through our verified retail partners.</p>
+  <p>Browse our range of certified herbal formulations, available directly through our official online store.</p>
   <div class="cta-btns">
-    <button class="btn-white">Shop on Amazon</button>
-    <button class="btn-ghost">Contact Us</button>
+    <button class="btn-white" onclick="window.location.href='products.html'">Browse Products</button>
+    <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Us</button>
   </div>
 </section>
 
@@ -1288,18 +1481,17 @@ footer{
   <div class="footer-col">
     <h4>Products</h4>
     <ul>
-      <li><a href="#">Ayugra — Men's Wellness</a></li>
-      <li><a href="#">Piles Cure Plus</a></li>
-      <li><a href="#">View All Products</a></li>
+      <li><a href="index.html#product-ayugra">Ayugra — Men's Wellness</a></li>
+      <li><a href="index.html#product-piles-cure-plus">Piles Cure Plus</a></li>
+      <li><a href="products.html">View All Products</a></li>
     </ul>
   </div>
   <div class="footer-col">
     <h4>Company</h4>
     <ul>
-      <li><a href="#">About Ehsan</a></li>
-      <li><a href="#">Certifications</a></li>
-      <li><a href="#">Amazon Store</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="about_us.html">About Ehsan</a></li>
+      <li><a href="about_us.html#certs">Certifications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </div>
   <div class="footer-col">
@@ -1330,8 +1522,7 @@ footer{
     <p><strong>Processing Time:</strong> Orders are typically prepared for dispatch within 24–48 hours of your purchase. You will receive an email/SMS confirmation once your order is on its way.</p>
     
     <h4>2. Shipping Rates</h4>
-    <p>Shipping costs are calculated at checkout based on the weight of your order and your delivery location.</p>
-    <p>We offer free standard shipping on orders above a certain value—please check our checkout page for details!</p>
+    <p>We charge a flat rate of ₹60 for shipping all over India, which is added automatically to your total order value at checkout.</p>
     
     <h4>3. Order Tracking</h4>
     <p>Once your order has been shipped, we will provide you with a Tracking Number. You can use this to monitor your shipment's progress in real-time.</p>
@@ -1459,139 +1650,129 @@ footer{
 <div id="checkoutModal" class="modal" onclick="closeModalOnBackground(event, 'checkoutModal')">
   <div class="modal-content checkout-modal-content">
     <button class="modal-close" onclick="closeModal('checkoutModal')">&times;</button>
-    <h2>Checkout Order</h2>
-    
-    <div class="checkout-grid">
-      <!-- Checkout Form (Left side on desktop) -->
-      <div class="checkout-form-section">
-        <h3>Shipping Details</h3>
-        <form id="checkoutForm" onsubmit="processCheckout(event)">
-          <div class="form-group">
-            <label for="checkoutName">Full Name</label>
-            <input type="text" id="checkoutName" required placeholder="Enter your full name">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="checkoutEmail">Email Address</label>
-              <input type="email" id="checkoutEmail" required placeholder="name@example.com">
-            </div>
-            <div class="form-group">
-              <label for="checkoutPhone">Phone Number</label>
-              <input type="tel" id="checkoutPhone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="checkoutAddress">Shipping Address</label>
-            <textarea id="checkoutAddress" required placeholder="Street address, apartment, suite, unit etc."></textarea>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="checkoutPincode">Pincode</label>
-              <input type="text" id="checkoutPincode" required pattern="[0-9]{6}" placeholder="6-digit PIN">
-            </div>
-            <div class="form-group">
-              <label for="checkoutCity">City</label>
-              <input type="text" id="checkoutCity" required placeholder="City">
-            </div>
-            <div class="form-group">
-              <label for="checkoutState">State</label>
-              <input type="text" id="checkoutState" required placeholder="State">
-            </div>
-          </div>
-          
-          <h3 style="margin-top:2rem">Payment Method</h3>
-          <div class="payment-options">
-            <label class="payment-option active">
-              <input type="radio" name="paymentMethod" value="phonepe" checked onchange="togglePaymentSelect(this)">
-              <div class="payment-option-details">
-                <span class="payment-title">PhonePe / UPI Gateway</span>
-                <span class="payment-desc">Pay securely using PhonePe, Google Pay, Paytm or Any UPI App</span>
-              </div>
-              <span class="phonepe-badge">PhonePe</span>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="paymentMethod" value="card" onchange="togglePaymentSelect(this)">
-              <div class="payment-option-details">
-                <span class="payment-title">Credit / Debit Card</span>
-                <span class="payment-desc">Visa, Mastercard, RuPay, Maestro cards</span>
-              </div>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="paymentMethod" value="netbanking" onchange="togglePaymentSelect(this)">
-              <div class="payment-option-details">
-                <span class="payment-title">Net Banking</span>
-                <span class="payment-desc">All major Indian banks supported</span>
-              </div>
-            </label>
-          </div>
-          
-          <button type="submit" class="checkout-submit-btn" id="payButton">
-            <span>Pay ₹<span id="buttonPrice">0</span> via PhonePe</span>
-          </button>
-        </form>
+
+    <!-- Step Indicator -->
+    <div class="checkout-step-indicator">
+      <div class="step-dot active" id="stepDot1"></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="stepDot2"></div>
+    </div>
+
+    <!-- ===== STEP 1: Order Review ===== -->
+    <div class="checkout-step active" id="checkoutStep1">
+      <div class="checkout-step-header">
+        <div class="step-badge">1</div>
+        <span class="step-title">Review Your Order</span>
       </div>
-      
-      <!-- Order Summary (Right side on desktop) -->
-      <div class="checkout-summary-section">
-        <h3>Order Summary</h3>
-        <div class="summary-card">
-          <div class="summary-product-item">
-            <img id="summaryProductImg" src="" alt="Product Image" class="summary-product-img">
-            <div class="summary-product-details">
-              <span class="summary-product-tag" id="summaryProductTag">Wellness</span>
-              <span class="summary-product-name" id="summaryProductName">Product Name</span>
-              <span class="summary-product-weight" id="summaryProductWeight">100g</span>
-              <div class="qty-selector">
-                <button class="qty-btn" type="button" onclick="adjustCheckoutQty(-1)">-</button>
-                <span class="qty-val" id="summaryProductQty">1</span>
-                <button class="qty-btn" type="button" onclick="adjustCheckoutQty(1)">+</button>
-              </div>
+
+      <!-- Product Card -->
+      <div class="s1-product-card">
+        <img id="summaryProductImg" src="" alt="Product" class="s1-product-img">
+        <div class="s1-product-info">
+          <span class="s1-tag" id="summaryProductTag">Wellness</span>
+          <span class="s1-name" id="summaryProductName">Product Name</span>
+          <span class="s1-weight" id="summaryProductWeight">100g</span>
+          <p class="s1-desc" id="summaryProductDesc"></p>
+          <div class="s1-qty-row">
+            <div class="qty-selector">
+              <button class="qty-btn" type="button" onclick="adjustCheckoutQty(-1)">−</button>
+              <span class="qty-val" id="summaryProductQty">1</span>
+              <button class="qty-btn" type="button" onclick="adjustCheckoutQty(1)">+</button>
             </div>
-            <div class="summary-product-price">
-              ₹<span id="summaryProductPrice">0</span>
-            </div>
-          </div>
-          
-          <div class="summary-pricing-details">
-            <div class="summary-price-row">
-              <span>Subtotal</span>
-              <span>₹<span id="summarySubtotal">0</span></span>
-            </div>
-            <div class="summary-price-row">
-              <span>Shipping</span>
-              <span class="free-shipping">FREE</span>
-            </div>
-            <div class="summary-price-row">
-              <span>Tax (GST Included)</span>
-              <span>₹0</span>
-            </div>
-            <div class="summary-price-row total-row">
-              <span>Total Amount</span>
-              <span>₹<span id="summaryTotal">0</span></span>
-            </div>
-          </div>
-          
-          <div class="compliance-note">
-            <svg class="secure-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-            <span>Secured by PhonePe Payment Gateway. Deliveries within 5-7 business days.</span>
+            <span class="s1-price">₹<span id="summaryProductPrice">0</span></span>
           </div>
         </div>
       </div>
+
+      <!-- Price Breakdown -->
+      <div class="s1-price-breakdown">
+        <div class="s1-pr">
+          <span>Subtotal</span>
+          <span>₹<span id="summarySubtotal">0</span></span>
+        </div>
+        <div class="s1-pr">
+          <span>Delivery (Flat rate, all over India)</span>
+          <span style="color:var(--moss);font-weight:500;">₹60</span>
+        </div>
+        <div class="s1-pr total">
+          <span>Total</span>
+          <span>₹<span id="summaryTotal">0</span></span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <button type="button" class="checkout-submit-btn" id="goToStep2Btn" onclick="goToCheckoutStep2()" style="background:var(--forest);">
+        Buy Now — Proceed to Shipping
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:6px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
     </div>
-    
+
+    <!-- ===== STEP 2: Shipping + Send ===== -->
+    <div class="checkout-step" id="checkoutStep2">
+      <div class="checkout-step-header">
+        <div class="step-badge">2</div>
+        <span class="step-title">Shipping Details</span>
+      </div>
+
+      <form id="checkoutForm" onsubmit="processCheckout(event)">
+        <div class="form-group">
+          <label for="checkoutName">Full Name</label>
+          <input type="text" id="checkoutName" required placeholder="Enter your full name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkoutPhone">Phone Number</label>
+            <input type="tel" id="checkoutPhone" required pattern="[0-9]{10}" placeholder="10-digit mobile">
+          </div>
+          <div class="form-group">
+            <label for="checkoutEmail">Email (optional)</label>
+            <input type="email" id="checkoutEmail" placeholder="name@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="checkoutAddress">Shipping Address</label>
+          <textarea id="checkoutAddress" required placeholder="Street, apartment, suite etc."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkoutCity">City</label>
+            <input type="text" id="checkoutCity" required placeholder="City">
+          </div>
+          <div class="form-group">
+            <label for="checkoutState">State</label>
+            <input type="text" id="checkoutState" required placeholder="State">
+          </div>
+          <div class="form-group">
+            <label for="checkoutPincode">Pincode</label>
+            <input type="text" id="checkoutPincode" required pattern="[0-9]{6}" placeholder="6-digit PIN">
+          </div>
+        </div>
+
+        <div style="background:rgba(37,211,102,0.07);border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:1rem;margin:1.2rem 0;display:flex;align-items:flex-start;gap:0.6rem;">
+          <svg width="20" height="20" viewBox="0 0 448 512" fill="#25D366" style="flex-shrink:0;margin-top:2px;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          <p style="font-size:0.82rem;color:#1a6b3a;margin:0;line-height:1.55;"><strong>WhatsApp Order:</strong> Your details will be sent to <strong>+91 7447526013</strong>. We'll confirm and share payment details in the chat.</p>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;margin-top:0.5rem;">
+          <button type="button" onclick="goToCheckoutStep1()" style="flex:0 0 auto;background:transparent;border:1px solid rgba(0,0,0,0.15);color:var(--text);padding:0.85rem 1.2rem;border-radius:9999px;font-family:'Inter',sans-serif;font-size:0.85rem;cursor:pointer;transition:background 0.2s;">← Back</button>
+          <button type="submit" class="checkout-submit-btn whatsapp-btn" id="payButton" style="flex:1;">
+            <svg width="20" height="20" viewBox="0 0 448 512" fill="currentColor" style="vertical-align:middle;margin-right:6px;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            Send via WhatsApp (₹<span id="buttonPrice">0</span>)
+          </button>
+        </div>
+      </form>
+    </div>
+
     <!-- Animated Processing State -->
     <div class="checkout-processing-overlay" id="checkoutProcessing">
       <div class="spinner-container">
         <div class="double-bounce1"></div>
         <div class="double-bounce2"></div>
       </div>
-      <p id="processingText">Initiating Payment Gateway...</p>
+      <p id="processingText">Preparing your order...</p>
     </div>
-    
-    <!-- Success Page (embedded inside) -->
+
+    <!-- Success Page -->
     <div class="checkout-success-view" id="checkoutSuccess">
       <div class="success-checkmark">
         <div class="check-icon">
@@ -1601,25 +1782,14 @@ footer{
           <div class="icon-fix"></div>
         </div>
       </div>
-      <h2>Order Placed Successfully!</h2>
+      <h2>Order Prepared!</h2>
       <p class="success-order-id">Order ID: <strong id="successOrderId">EP-12345</strong></p>
-      <p class="success-msg">Thank you for your order! A confirmation email and SMS has been sent to you. Your payment was processed securely via PhonePe.</p>
-      
+      <p class="success-msg" style="font-size:0.9rem;line-height:1.6;color:var(--text);max-width:450px;margin-bottom:1.8rem;font-family:'Inter',sans-serif;">WhatsApp has been opened with your order details. Please send the pre-filled message to confirm your order.</p>
       <div class="success-details-card">
-        <div class="success-row">
-          <span>Item Ordered:</span>
-          <span id="successItemName">Ayugra</span>
-        </div>
-        <div class="success-row">
-          <span>Amount Paid:</span>
-          <strong>₹<span id="successAmount">0</span></strong>
-        </div>
-        <div class="success-row">
-          <span>Delivery Window:</span>
-          <span>5-7 business days</span>
-        </div>
+        <div class="success-row"><span>Item Ordered:</span><span id="successItemName">Ayugra</span></div>
+        <div class="success-row"><span>Total Amount:</span><strong>₹<span id="successAmount">0</span></strong></div>
+        <div class="success-row"><span>Delivery:</span><span>5–7 business days</span></div>
       </div>
-      
       <button class="success-close-btn" type="button" onclick="closeCheckoutSuccess()">Continue Shopping</button>
     </div>
   </div>
@@ -1702,82 +1872,66 @@ let currentCheckoutItem = {
   price: 0,
   img: '',
   weight: '',
+  desc: '',
   qty: 1
 };
 
-function openCheckout(name, tag, price, img, weight) {
-  currentCheckoutItem = { name, tag, price, img, weight, qty: 1 };
-  
-  // Update UI Elements
+function openCheckout(name, tag, price, img, weight, desc) {
+  currentCheckoutItem = { name, tag, price, img, weight, desc, qty: 1 };
+
+  // Update Step 1 UI
   document.getElementById('summaryProductImg').src = img;
   document.getElementById('summaryProductImg').alt = name;
   document.getElementById('summaryProductTag').innerText = tag;
   document.getElementById('summaryProductName').innerText = name;
   document.getElementById('summaryProductWeight').innerText = weight;
+  document.getElementById('summaryProductDesc').innerText = desc || '';
   document.getElementById('summaryProductQty').innerText = '1';
-  
+
   updateSummaryCalculations();
-  
-  // Reset payment option to PhonePe
-  const phonepeRadio = document.querySelector('input[name="paymentMethod"][value="phonepe"]');
-  if (phonepeRadio) {
-    phonepeRadio.checked = true;
-    togglePaymentSelect(phonepeRadio);
-  }
-  
-  // Clear form inputs
+
+  // Reset form & go to step 1
   document.getElementById('checkoutForm').reset();
-  
-  // Hide success and processing overlay
   document.getElementById('checkoutProcessing').classList.remove('active');
   document.getElementById('checkoutSuccess').classList.remove('active');
-  
-  // Open the modal
+  goToCheckoutStep1();
+
   openModal('checkoutModal');
+}
+
+function goToCheckoutStep1() {
+  document.getElementById('checkoutStep1').classList.add('active');
+  document.getElementById('checkoutStep2').classList.remove('active');
+  document.getElementById('stepDot1').classList.add('active');
+  document.getElementById('stepDot2').classList.remove('active');
+}
+
+function goToCheckoutStep2() {
+  document.getElementById('checkoutStep1').classList.remove('active');
+  document.getElementById('checkoutStep2').classList.add('active');
+  document.getElementById('stepDot1').classList.remove('active');
+  document.getElementById('stepDot2').classList.add('active');
+  // Scroll modal to top
+  const mc = document.querySelector('.checkout-modal-content');
+  if (mc) mc.scrollTop = 0;
 }
 
 function adjustCheckoutQty(diff) {
   let newQty = currentCheckoutItem.qty + diff;
   if (newQty < 1) newQty = 1;
-  if (newQty > 10) newQty = 10; // reasonable limit
-  
+  if (newQty > 10) newQty = 10;
   currentCheckoutItem.qty = newQty;
   document.getElementById('summaryProductQty').innerText = newQty;
-  
   updateSummaryCalculations();
 }
 
 function updateSummaryCalculations() {
   const itemSubtotal = currentCheckoutItem.price * currentCheckoutItem.qty;
-  const total = itemSubtotal; // shipping free, no extra tax
-  
+  const total = itemSubtotal + 60;
   document.getElementById('summaryProductPrice').innerText = itemSubtotal;
   document.getElementById('summarySubtotal').innerText = itemSubtotal;
   document.getElementById('summaryTotal').innerText = total;
   document.getElementById('buttonPrice').innerText = total;
-}
-
-function togglePaymentSelect(radioInput) {
-  // Remove active class from all options
-  document.querySelectorAll('.payment-option').forEach(el => {
-    el.classList.remove('active');
-  });
-  
-  // Add active class to parent label
-  const parentLabel = radioInput.closest('.payment-option');
-  if (parentLabel) {
-    parentLabel.classList.add('active');
-  }
-  
-  // Update submit button text to reflect payment gateway
-  const payButton = document.getElementById('payButton');
-  const total = currentCheckoutItem.price * currentCheckoutItem.qty;
-  
-  let gatewayText = 'PhonePe';
-  if (radioInput.value === 'card') gatewayText = 'Secure Card';
-  else if (radioInput.value === 'netbanking') gatewayText = 'Net Banking';
-  
-  payButton.innerHTML = `<span>Pay ₹<span id="buttonPrice">${total}</span> via ${gatewayText}</span>`;
 }
 
 function processCheckout(event) {
@@ -1797,37 +1951,52 @@ function processCheckout(event) {
     return;
   }
   
+  const itemSubtotal = currentCheckoutItem.price * currentCheckoutItem.qty;
+  const total = itemSubtotal + 60; // ₹60 flat shipping charge
+  
+  const messageText = `Hello Ehsan Products, I would like to place an order:
+
+*Product:* ${currentCheckoutItem.name}
+*Quantity:* ${currentCheckoutItem.qty}
+*Net Weight:* ${currentCheckoutItem.weight}
+
+*Delivery Address:*
+*Name:* ${name}
+*Phone:* ${phone}
+*Email:* ${email}
+*Address:* ${address}, ${city}, ${state} - ${pincode}
+
+*Total Cost:* ₹${total} (including ₹60 flat rate delivery)`;
+  
   // Show processing overlay
   const processingOverlay = document.getElementById('checkoutProcessing');
   const processingText = document.getElementById('processingText');
   processingOverlay.classList.add('active');
+  processingText.innerText = 'Preparing order details...';
   
-  // Simulate PhonePe Gateway redirection and processing steps
   setTimeout(() => {
-    processingText.innerText = 'Connecting to PhonePe Secure Gateway...';
+    processingText.innerText = 'Opening WhatsApp chat...';
     setTimeout(() => {
-      processingText.innerText = 'Authorizing transaction...';
-      setTimeout(() => {
-        processingText.innerText = 'Completing payment...';
-        setTimeout(() => {
-          // Hide processing
-          processingOverlay.classList.remove('active');
-          
-          // Generate realistic Order ID
-          const orderId = 'EP-' + Math.floor(100000 + Math.random() * 900000);
-          const totalPaid = currentCheckoutItem.price * currentCheckoutItem.qty;
-          
-          // Setup success view
-          document.getElementById('successOrderId').innerText = orderId;
-          document.getElementById('successItemName').innerText = `${currentCheckoutItem.name} (Qty: ${currentCheckoutItem.qty})`;
-          document.getElementById('successAmount').innerText = totalPaid;
-          
-          // Show success view
-          document.getElementById('checkoutSuccess').classList.add('active');
-        }, 1000);
-      }, 1200);
+      // Hide processing
+      processingOverlay.classList.remove('active');
+      
+      // Open WhatsApp
+      const encodedText = encodeURIComponent(messageText);
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=917447526013&text=${encodedText}`;
+      window.open(whatsappUrl, '_blank');
+      
+      // Generate realistic Order ID
+      const orderId = 'EP-' + Math.floor(100000 + Math.random() * 900000);
+      
+      // Setup success view
+      document.getElementById('successOrderId').innerText = orderId;
+      document.getElementById('successItemName').innerText = `${currentCheckoutItem.name} (Qty: ${currentCheckoutItem.qty})`;
+      document.getElementById('successAmount').innerText = total;
+      
+      // Show success view
+      document.getElementById('checkoutSuccess').classList.add('active');
     }, 1000);
-  }, 800);
+  }, 1000);
 }
 
 function closeCheckoutSuccess() {
@@ -1845,5 +2014,10 @@ document.addEventListener('keydown', function(event) {
   }
 });
 </script>
+
+<!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+<a class="fab-whatsapp" href="https://wa.me/917447526013" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
 </body>
 </html>

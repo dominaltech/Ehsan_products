@@ -1474,7 +1474,43 @@ footer{
   <p>Browse our range of certified herbal formulations, available directly through our official online store.</p>
   <div class="cta-btns">
     <button class="btn-white" onclick="window.location.href='products.html'">Browse Products</button>
-    <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Us</button>
+    <button class="btn-ghost" onclick="document.getElementById('contact-details-grid').scrollIntoView({behavior: 'smooth'})">Contact Us</button>
+  </div>
+
+  <!-- Contact Info Grid -->
+  <div id="contact-details-grid" style="margin-top: 3.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; text-align: left; max-width: 900px; margin-left: auto; margin-right: auto; padding: 2.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; font-family: 'Inter', sans-serif;">
+    <!-- Phone / WhatsApp -->
+    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+      <div style="background: rgba(122,171,110,0.15); padding: 0.75rem; border-radius: 50%; color: var(--sage); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="display: block;"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27 11.72 11.72 0 0 0 3.67.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .58 3.67 1 1 0 0 1-.27 1.1l-2.21 2.02z"/></svg>
+      </div>
+      <div>
+        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem 0;">Call / WhatsApp</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;"><a href="tel:+917447526013" style="color: #fff; text-decoration: none; font-weight: 500;">+91 7447526013</a></p>
+      </div>
+    </div>
+    
+    <!-- Email Support -->
+    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+      <div style="background: rgba(122,171,110,0.15); padding: 0.75rem; border-radius: 50%; color: var(--sage); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="display: block;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <div>
+        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem 0;">Email Support</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; margin: 0;"><a href="mailto:ehsanproduct1@gmail.com" style="color: #fff; text-decoration: none; font-weight: 500;">ehsanproduct1@gmail.com</a></p>
+      </div>
+    </div>
+
+    <!-- Business Address -->
+    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+      <div style="background: rgba(122,171,110,0.15); padding: 0.75rem; border-radius: 50%; color: var(--sage); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="display: block;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div>
+        <h4 style="color: #fff; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem 0;">Trade Name & Office</h4>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin: 0; line-height: 1.45;"><strong>Ehsan Products</strong><br>Solapur, 413003 Maharashtra</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1540,7 +1576,7 @@ footer{
     <p>Please ensure your shipping address is entered correctly. Ehsan Products is not responsible for delayed or undelivered packages due to incorrect or incomplete address information provided at checkout.</p>
     
     <h4>6. Damaged Goods</h4>
-    <p>If your package arrives damaged, please take a photo immediately and contact us at <strong>support@ehsanproducts.com</strong> within 24 hours of delivery. We will prioritize sending you a fresh replacement.</p>
+    <p>If your package arrives damaged, please take a photo immediately and contact us at <strong>ehsanproduct1@gmail.com</strong> within 24 hours of delivery. We will prioritize sending you a fresh replacement.</p>
   </div>
 </div>
 
@@ -1583,12 +1619,12 @@ footer{
     <p>We take reasonable precautions and follow industry best practices to make sure your personal information is not inappropriately lost, misused, accessed, disclosed, altered, or destroyed.</p>
     
     <h3>6. Your Rights</h3>
-    <p>If you would like to access, correct, amend, or delete any personal information we have about you, or simply want more information, please contact us at support@ehsanproducts.com.</p>
+    <p>If you would like to access, correct, amend, or delete any personal information we have about you, or simply want more information, please contact us at ehsanproduct1@gmail.com.</p>
     
     <h3>7. Changes to This Policy</h3>
     <p>We may update this privacy policy from time to time in order to reflect changes to our practices or for other operational, legal, or regulatory reasons.</p>
     
-    <p><strong>Contact Us:</strong> For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at support@ehsanproducts.com.</p>
+    <p><strong>Contact Us:</strong> For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at ehsanproduct1@gmail.com.</p>
   </div>
 </div>
 
@@ -1606,7 +1642,7 @@ footer{
     <p>Refund will be credited to original payment method within 5-7 business days after we receive and inspect the returned items. Once your return is received and inspected, we will notify you of the approval or rejection of your refund. If approved, the refund process will be initiated automatically.</p>
     
     <h3>3. Return Shipping</h3>
-    <p>To initiate a return, please contact our support team at <strong>support@ehsanproducts.com</strong>. We will guide you through the return shipment process.</p>
+    <p>To initiate a return, please contact our support team at <strong>ehsanproduct1@gmail.com</strong>. We will guide you through the return shipment process.</p>
   </div>
 </div>
 
@@ -1618,7 +1654,7 @@ footer{
     <p>At Ehsan Products, customer satisfaction is our top priority. We offer replacements under the following terms:</p>
     
     <h3>1. Defective or Damaged Products</h3>
-    <p>If you receive a defective, damaged, or incorrect product, you are eligible for a free replacement. Please request a replacement within 7 days of delivery by emailing us at <strong>support@ehsanproducts.com</strong> with your order number and photos of the product condition.</p>
+    <p>If you receive a defective, damaged, or incorrect product, you are eligible for a free replacement. Please request a replacement within 7 days of delivery by emailing us at <strong>ehsanproduct1@gmail.com</strong> with your order number and photos of the product condition.</p>
     
     <h3>2. Delivery of Replacement</h3>
     <p>Replacement orders will be delivered within 5-7 business days of your request being approved. There are no additional shipping charges for sending a replacement product.</p>

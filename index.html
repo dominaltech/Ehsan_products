@@ -613,6 +613,443 @@ footer{
 /* ===== SCROLL REVEAL (STATIC) ===== */
 .reveal{opacity:1;transform:none}
 
+/* ===== CHECKOUT FLOW ===== */
+.checkout-modal-content {
+  max-width: 960px;
+  width: 95%;
+  padding: 2.5rem;
+  background-color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+.checkout-form-section h3, .checkout-summary-section h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5rem;
+  color: var(--forest);
+  border-bottom: 1px solid rgba(42,90,61,0.15);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.form-group {
+  margin-bottom: 1.1rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(26,58,42,0.08);
+}
+.form-group textarea {
+  height: 80px;
+  resize: vertical;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.payment-option:hover {
+  border-color: var(--sage);
+}
+.payment-option.active {
+  border-color: var(--forest);
+  background: rgba(26,58,42,0.02);
+}
+.payment-option input[type="radio"] {
+  accent-color: var(--forest);
+  width: 18px;
+  height: 18px;
+}
+.payment-option-details {
+  display: flex;
+  flex-direction: column;
+}
+.payment-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.payment-desc {
+  font-size: 0.72rem;
+  color: var(--gray);
+  margin-top: 0.15rem;
+}
+.phonepe-badge {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #5f259f;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+.checkout-submit-btn {
+  background: var(--forest);
+  color: #fff;
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.checkout-submit-btn:hover {
+  background: var(--moss);
+  transform: translateY(-1px);
+}
+
+/* Summary styles */
+.summary-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 1rem;
+}
+.summary-product-item {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.summary-product-img {
+  width: 60px;
+  height: 75px;
+  object-fit: contain;
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+.summary-product-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.summary-product-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+.summary-product-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.2rem;
+  color: #000;
+  margin-top: 0.15rem;
+}
+.summary-product-weight {
+  font-size: 0.7rem;
+  color: var(--gray);
+  margin-top: 0.1rem;
+}
+.qty-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+.qty-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.qty-btn:hover {
+  background: var(--cream);
+}
+.qty-val {
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-width: 15px;
+  text-align: center;
+}
+.summary-product-price {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000;
+  white-space: nowrap;
+}
+.summary-pricing-details {
+  padding: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.summary-price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+.free-shipping {
+  color: var(--sage);
+  font-weight: 500;
+}
+.total-row {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #000;
+  margin-top: 0.3rem;
+}
+.compliance-note {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin-top: 1.2rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--gray);
+}
+.secure-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--sage);
+  margin-top: 2px;
+}
+
+/* Processing Overlay */
+.checkout-processing-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(247,243,236,0.95);
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+.checkout-processing-overlay.active {
+  display: flex;
+}
+.spinner-container {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--forest);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+.double-bounce2 {
+  animation-delay: -1.0s;
+}
+@keyframes sk-bounce {
+  0%, 100% { transform: scale(0.0) }
+  50% { transform: scale(1.0) }
+}
+#processingText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--forest);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Success View */
+.checkout-success-view {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  z-index: 11;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  overflow-y: auto;
+}
+.checkout-success-view.active {
+  display: flex;
+}
+.success-checkmark {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+}
+.check-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid var(--sage);
+}
+.check-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--cream);
+}
+.icon-line {
+  height: 5px;
+  background-color: var(--sage);
+  display: block;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+}
+.line-tip {
+  width: 25px;
+  left: 14px;
+  top: 45px;
+  transform: rotate(45deg);
+}
+.line-long {
+  width: 47px;
+  right: 8px;
+  top: 38px;
+  transform: rotate(-45deg);
+}
+.icon-circle {
+  top: -4px;
+  left: -4px;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+}
+.checkout-success-view h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.2rem;
+  color: var(--forest);
+  margin-bottom: 0.5rem;
+}
+.success-order-id {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+}
+.success-msg {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 450px;
+  margin-bottom: 1.8rem;
+}
+.success-details-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.2rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+.success-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  color: var(--text-light);
+}
+.success-row:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.success-row strong {
+  color: #000;
+  font-size: 0.95rem;
+}
+.success-close-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.success-close-btn:hover {
+  opacity: 0.85;
+}
+
+/* Responsive adjustment for checkout modal grid */
+@media(max-width: 800px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .checkout-summary-section {
+    order: -1;
+  }
+}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .about{grid-template-columns:1fr}
@@ -703,7 +1140,7 @@ footer{
             <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹399</span>
             <span class="product-weight" style="font-size:0.75rem;color:var(--gray)">Net Wt. 100g</span>
           </div>
-          <button class="product-shop-btn">Buy Now</button>
+          <button class="product-shop-btn" onclick="openCheckout('Ayugra', 'Men\'s Wellness', 399, 'ayugra.jpg', 'Net Wt. 100g')">Buy Now</button>
         </div>
       </div>
     </div>
@@ -723,7 +1160,7 @@ footer{
             <span class="product-price" style="font-weight:600;font-size:1.1rem;color:#000">₹499</span>
             <span class="product-weight" style="font-size:0.75rem;color:var(--gray)">Net Wt. 100g</span>
           </div>
-          <button class="product-shop-btn">Buy Now</button>
+          <button class="product-shop-btn" onclick="openCheckout('Piles Cure Plus', 'Digestive Health', 499, 'piles_cure_plus.jpg', 'Net Wt. 100g')">Buy Now</button>
         </div>
       </div>
     </div>
@@ -743,6 +1180,9 @@ footer{
     </p>
     <p class="about-text">
       Every formulation is a careful blend of centuries-old Ayurvedic texts and contemporary clinical research. Pure, effective, and trustworthy — always.
+    </p>
+    <p class="about-text" style="font-weight: 500; margin-top: 1rem; color: var(--forest);">
+      This website is owned and managed by Ehsan Products.
     </p>
     <div class="certs">
       <span class="cert-badge">GMP Certified</span>
@@ -867,7 +1307,9 @@ footer{
     <ul>
       <li><a href="#" onclick="openModal('shippingModal'); return false;">Shipping Policy</a></li>
       <li><a href="#" onclick="openModal('privacyModal'); return false;">Privacy Policy</a></li>
-      <li><a href="#" onclick="openModal('refundModal'); return false;">Return & Refund</a></li>
+      <li><a href="#" onclick="openModal('refundModal'); return false;">Return & Refund Policy</a></li>
+      <li><a href="#" onclick="openModal('replacementModal'); return false;">Replacement Policy</a></li>
+      <li><a href="#" onclick="openModal('termsModal'); return false;">Terms & Conditions</a></li>
     </ul>
   </div>
   <div class="footer-bottom">
@@ -881,27 +1323,27 @@ footer{
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('shippingModal')">&times;</button>
     <h2>Shipping Policy</h2>
-    <p>At Ehsan Products, we take pride in our Policy. To ensure your pieces arrive safely, please review our shipping guidelines below.</p>
+    <p>At Ehsan Products, we take pride in our service. To ensure your products arrive safely, please review our shipping guidelines below.</p>
     
     <h4>1. Delivery Timeframe</h4>
-    <p><strong>Standard Shipping:</strong> All orders are processed and shipped via our courier partners. Please allow 7–10 business days for your product to be delivered to your doorstep.</p>
-    <p><strong>Processing Time:</strong> Orders are typically prepared for dispatch within 24–48 hours of your purchase. You will receive an email confirmation once your order is on its way.</p>
+    <p><strong>Standard Shipping:</strong> All orders are processed and shipped via our courier partners. Orders will be delivered within 5-7 business days to your doorstep.</p>
+    <p><strong>Processing Time:</strong> Orders are typically prepared for dispatch within 24–48 hours of your purchase. You will receive an email/SMS confirmation once your order is on its way.</p>
     
     <h4>2. Shipping Rates</h4>
     <p>Shipping costs are calculated at checkout based on the weight of your order and your delivery location.</p>
-    <p>We occasionally offer promotional free shipping on orders above a certain value—keep an eye on our homepage for updates!</p>
+    <p>We offer free standard shipping on orders above a certain value—please check our checkout page for details!</p>
     
     <h4>3. Order Tracking</h4>
-    <p>Once your order has been shipped, we will provide you with a Tracking Number via email. You can use this to monitor your shipment's progress in real-time.</p>
+    <p>Once your order has been shipped, we will provide you with a Tracking Number. You can use this to monitor your shipment's progress in real-time.</p>
     
     <h4>4. Packaging & Safety</h4>
-    <p>Because our products are housed in glass jars and contain herbal ingredients, we use specialized, eco-friendly protective packaging to prevent breakage and maintain temperature stability during the 7–10 day transit period.</p>
+    <p>Because our products contain herbal ingredients and are sealed to preserve purity, we use specialized protective packaging to maintain temperature stability and prevent damage during transit.</p>
     
     <h4>5. Address Accuracy</h4>
-    <p>Please ensure your shipping address is entered correctly. Ehsan Products is not responsible for delayed or undelivered packages due to incorrect or incomplete address information provided at the time of checkout.</p>
+    <p>Please ensure your shipping address is entered correctly. Ehsan Products is not responsible for delayed or undelivered packages due to incorrect or incomplete address information provided at checkout.</p>
     
-    <h4>6. Damaged or Leaking Goods</h4>
-    <p>If your package arrives damaged during the 7–10 day journey, please take a photo immediately and contact us at <strong>support@ehsanproducts.com</strong> within 24 hours of delivery. We will prioritize sending you a fresh replacement.</p>
+    <h4>6. Damaged Goods</h4>
+    <p>If your package arrives damaged, please take a photo immediately and contact us at <strong>support@ehsanproducts.com</strong> within 24 hours of delivery. We will prioritize sending you a fresh replacement.</p>
   </div>
 </div>
 
@@ -910,13 +1352,13 @@ footer{
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
     <h2>Privacy Policy</h2>
-    <p><strong>Effective Date: 2026</strong></p>
+    <p><strong>Effective Date: June 24, 2026</strong></p>
     <p>At Ehsan Products, we value your trust as much as we value our formulations. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.</p>
     
     <h3>1. Information We Collect</h3>
     <p>When you make a purchase or attempt to make a purchase through Ehsan Products, we collect certain information from you, including:</p>
     <ul>
-      <li><strong>Order Information:</strong> Name, billing address, shipping address, and payment information (including credit card numbers or UPI IDs).</li>
+      <li><strong>Order Information:</strong> Name, billing address, shipping address, and payment information (including credit card numbers or UPI details).</li>
       <li><strong>Contact Information:</strong> Email address and phone number.</li>
       <li><strong>Device Information:</strong> We automatically collect certain information about your device, including your web browser, IP address, and time zone.</li>
     </ul>
@@ -933,8 +1375,8 @@ footer{
     <h3>3. Sharing Your Information</h3>
     <p>We share your Personal Information with third parties only to help us use your information as described above. For example:</p>
     <ul>
-      <li><strong>Logistics Partners:</strong> We share your name, address, and phone number with our delivery partners to ensure your products arrive within the 7-10 day window.</li>
-      <li><strong>Payment Processors:</strong> Your payment details are processed through secure, encrypted gateways; we do not store your full credit card details on our servers.</li>
+      <li><strong>Logistics Partners:</strong> We share your name, address, and phone number with our delivery partners to ensure your products arrive within the 5-7 business days window.</li>
+      <li><strong>Payment Processors:</strong> Your payment details are processed through secure, encrypted gateways; we do not store your full payment card details on our servers.</li>
     </ul>
     
     <h3>4. Data Retention</h3>
@@ -958,11 +1400,228 @@ footer{
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('refundModal')">&times;</button>
     <h2>Return & Refund Policy</h2>
-    <p>We do not offer any return or refund. Please check all details carefully before placing your order.</p>
+    <p>Thank you for shopping at Ehsan Products.</p>
     
-    <h3>Exchange Policy</h3>
-    <p>Exchange requests must be raised within 4 days of product delivery.</p>
-    <p>After the request is approved, the exchanged product will be delivered within 7 days.</p>
+    <h3>1. Return Policy</h3>
+    <p>We have 7-days return policy. If you are not entirely satisfied with your purchase, you can return the product within 7 days from the date of delivery. To be eligible for a return, the item must be unused, unopened, and in the same condition that you received it, with its original packaging intact.</p>
+    
+    <h3>2. Refund Policy</h3>
+    <p>Refund will be credited to original payment method within 5-7 business days after we receive and inspect the returned items. Once your return is received and inspected, we will notify you of the approval or rejection of your refund. If approved, the refund process will be initiated automatically.</p>
+    
+    <h3>3. Return Shipping</h3>
+    <p>To initiate a return, please contact our support team at <strong>support@ehsanproducts.com</strong>. We will guide you through the return shipment process.</p>
+  </div>
+</div>
+
+<!-- Replacement Policy Modal -->
+<div id="replacementModal" class="modal" onclick="closeModalOnBackground(event, 'replacementModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('replacementModal')">&times;</button>
+    <h2>Replacement Policy</h2>
+    <p>At Ehsan Products, customer satisfaction is our top priority. We offer replacements under the following terms:</p>
+    
+    <h3>1. Defective or Damaged Products</h3>
+    <p>If you receive a defective, damaged, or incorrect product, you are eligible for a free replacement. Please request a replacement within 7 days of delivery by emailing us at <strong>support@ehsanproducts.com</strong> with your order number and photos of the product condition.</p>
+    
+    <h3>2. Delivery of Replacement</h3>
+    <p>Replacement orders will be delivered within 5-7 business days of your request being approved. There are no additional shipping charges for sending a replacement product.</p>
+    
+    <h3>3. Scope of Replacement</h3>
+    <p>Replacement is applicable only for products purchased directly from our website. Products must not be completely consumed or altered.</p>
+  </div>
+</div>
+
+<!-- Terms & Conditions Modal -->
+<div id="termsModal" class="modal" onclick="closeModalOnBackground(event, 'termsModal')">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+    <h2>Terms & Conditions</h2>
+    <p>This website is owned and managed by Ehsan Products. By accessing or using this website, you agree to be bound by these terms and conditions.</p>
+    
+    <h3>1. Terms of Use</h3>
+    <p>The content of the pages of this website is for your general information and use only. It is subject to change without notice. Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.</p>
+    
+    <h3>2. Pricing & Products</h3>
+    <p>All prices listed on the website are in Indian Rupees (INR) and are subject to change. We make every effort to display the products and pricing accurately, but errors may occur. In the event of an error, we reserve the right to cancel any orders placed for products listed at the incorrect price.</p>
+    
+    <h3>3. Payments & Security</h3>
+    <p>Payments are processed securely via our trusted payment gateways. You agree to provide current, complete, and accurate purchase and account information for all purchases made.</p>
+    
+    <h3>4. Governing Law & Jurisdiction</h3>
+    <p>These terms and conditions are governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with this website shall be subject to the exclusive jurisdiction of the courts in Delhi, India.</p>
+    
+    <h3>5. Intellectual Property</h3>
+    <p>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance, and graphics. Reproduction is prohibited other than in accordance with the copyright notice.</p>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="modal" onclick="closeModalOnBackground(event, 'checkoutModal')">
+  <div class="modal-content checkout-modal-content">
+    <button class="modal-close" onclick="closeModal('checkoutModal')">&times;</button>
+    <h2>Checkout Order</h2>
+    
+    <div class="checkout-grid">
+      <!-- Checkout Form (Left side on desktop) -->
+      <div class="checkout-form-section">
+        <h3>Shipping Details</h3>
+        <form id="checkoutForm" onsubmit="processCheckout(event)">
+          <div class="form-group">
+            <label for="checkoutName">Full Name</label>
+            <input type="text" id="checkoutName" required placeholder="Enter your full name">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkoutEmail">Email Address</label>
+              <input type="email" id="checkoutEmail" required placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="checkoutPhone">Phone Number</label>
+              <input type="tel" id="checkoutPhone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="checkoutAddress">Shipping Address</label>
+            <textarea id="checkoutAddress" required placeholder="Street address, apartment, suite, unit etc."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkoutPincode">Pincode</label>
+              <input type="text" id="checkoutPincode" required pattern="[0-9]{6}" placeholder="6-digit PIN">
+            </div>
+            <div class="form-group">
+              <label for="checkoutCity">City</label>
+              <input type="text" id="checkoutCity" required placeholder="City">
+            </div>
+            <div class="form-group">
+              <label for="checkoutState">State</label>
+              <input type="text" id="checkoutState" required placeholder="State">
+            </div>
+          </div>
+          
+          <h3 style="margin-top:2rem">Payment Method</h3>
+          <div class="payment-options">
+            <label class="payment-option active">
+              <input type="radio" name="paymentMethod" value="phonepe" checked onchange="togglePaymentSelect(this)">
+              <div class="payment-option-details">
+                <span class="payment-title">PhonePe / UPI Gateway</span>
+                <span class="payment-desc">Pay securely using PhonePe, Google Pay, Paytm or Any UPI App</span>
+              </div>
+              <span class="phonepe-badge">PhonePe</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="card" onchange="togglePaymentSelect(this)">
+              <div class="payment-option-details">
+                <span class="payment-title">Credit / Debit Card</span>
+                <span class="payment-desc">Visa, Mastercard, RuPay, Maestro cards</span>
+              </div>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="netbanking" onchange="togglePaymentSelect(this)">
+              <div class="payment-option-details">
+                <span class="payment-title">Net Banking</span>
+                <span class="payment-desc">All major Indian banks supported</span>
+              </div>
+            </label>
+          </div>
+          
+          <button type="submit" class="checkout-submit-btn" id="payButton">
+            <span>Pay ₹<span id="buttonPrice">0</span> via PhonePe</span>
+          </button>
+        </form>
+      </div>
+      
+      <!-- Order Summary (Right side on desktop) -->
+      <div class="checkout-summary-section">
+        <h3>Order Summary</h3>
+        <div class="summary-card">
+          <div class="summary-product-item">
+            <img id="summaryProductImg" src="" alt="Product Image" class="summary-product-img">
+            <div class="summary-product-details">
+              <span class="summary-product-tag" id="summaryProductTag">Wellness</span>
+              <span class="summary-product-name" id="summaryProductName">Product Name</span>
+              <span class="summary-product-weight" id="summaryProductWeight">100g</span>
+              <div class="qty-selector">
+                <button class="qty-btn" type="button" onclick="adjustCheckoutQty(-1)">-</button>
+                <span class="qty-val" id="summaryProductQty">1</span>
+                <button class="qty-btn" type="button" onclick="adjustCheckoutQty(1)">+</button>
+              </div>
+            </div>
+            <div class="summary-product-price">
+              ₹<span id="summaryProductPrice">0</span>
+            </div>
+          </div>
+          
+          <div class="summary-pricing-details">
+            <div class="summary-price-row">
+              <span>Subtotal</span>
+              <span>₹<span id="summarySubtotal">0</span></span>
+            </div>
+            <div class="summary-price-row">
+              <span>Shipping</span>
+              <span class="free-shipping">FREE</span>
+            </div>
+            <div class="summary-price-row">
+              <span>Tax (GST Included)</span>
+              <span>₹0</span>
+            </div>
+            <div class="summary-price-row total-row">
+              <span>Total Amount</span>
+              <span>₹<span id="summaryTotal">0</span></span>
+            </div>
+          </div>
+          
+          <div class="compliance-note">
+            <svg class="secure-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span>Secured by PhonePe Payment Gateway. Deliveries within 5-7 business days.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Animated Processing State -->
+    <div class="checkout-processing-overlay" id="checkoutProcessing">
+      <div class="spinner-container">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+      <p id="processingText">Initiating Payment Gateway...</p>
+    </div>
+    
+    <!-- Success Page (embedded inside) -->
+    <div class="checkout-success-view" id="checkoutSuccess">
+      <div class="success-checkmark">
+        <div class="check-icon">
+          <span class="icon-line line-tip"></span>
+          <span class="icon-line line-long"></span>
+          <div class="icon-circle"></div>
+          <div class="icon-fix"></div>
+        </div>
+      </div>
+      <h2>Order Placed Successfully!</h2>
+      <p class="success-order-id">Order ID: <strong id="successOrderId">EP-12345</strong></p>
+      <p class="success-msg">Thank you for your order! A confirmation email and SMS has been sent to you. Your payment was processed securely via PhonePe.</p>
+      
+      <div class="success-details-card">
+        <div class="success-row">
+          <span>Item Ordered:</span>
+          <span id="successItemName">Ayugra</span>
+        </div>
+        <div class="success-row">
+          <span>Amount Paid:</span>
+          <strong>₹<span id="successAmount">0</span></strong>
+        </div>
+        <div class="success-row">
+          <span>Delivery Window:</span>
+          <span>5-7 business days</span>
+        </div>
+      </div>
+      
+      <button class="success-close-btn" type="button" onclick="closeCheckoutSuccess()">Continue Shopping</button>
+    </div>
   </div>
 </div>
 
@@ -1034,6 +1693,146 @@ function closeModalOnBackground(event, modalId) {
   if (event.target.id === modalId) {
     closeModal(modalId);
   }
+}
+
+// ====== CHECKOUT LOGIC ======
+let currentCheckoutItem = {
+  name: '',
+  tag: '',
+  price: 0,
+  img: '',
+  weight: '',
+  qty: 1
+};
+
+function openCheckout(name, tag, price, img, weight) {
+  currentCheckoutItem = { name, tag, price, img, weight, qty: 1 };
+  
+  // Update UI Elements
+  document.getElementById('summaryProductImg').src = img;
+  document.getElementById('summaryProductImg').alt = name;
+  document.getElementById('summaryProductTag').innerText = tag;
+  document.getElementById('summaryProductName').innerText = name;
+  document.getElementById('summaryProductWeight').innerText = weight;
+  document.getElementById('summaryProductQty').innerText = '1';
+  
+  updateSummaryCalculations();
+  
+  // Reset payment option to PhonePe
+  const phonepeRadio = document.querySelector('input[name="paymentMethod"][value="phonepe"]');
+  if (phonepeRadio) {
+    phonepeRadio.checked = true;
+    togglePaymentSelect(phonepeRadio);
+  }
+  
+  // Clear form inputs
+  document.getElementById('checkoutForm').reset();
+  
+  // Hide success and processing overlay
+  document.getElementById('checkoutProcessing').classList.remove('active');
+  document.getElementById('checkoutSuccess').classList.remove('active');
+  
+  // Open the modal
+  openModal('checkoutModal');
+}
+
+function adjustCheckoutQty(diff) {
+  let newQty = currentCheckoutItem.qty + diff;
+  if (newQty < 1) newQty = 1;
+  if (newQty > 10) newQty = 10; // reasonable limit
+  
+  currentCheckoutItem.qty = newQty;
+  document.getElementById('summaryProductQty').innerText = newQty;
+  
+  updateSummaryCalculations();
+}
+
+function updateSummaryCalculations() {
+  const itemSubtotal = currentCheckoutItem.price * currentCheckoutItem.qty;
+  const total = itemSubtotal; // shipping free, no extra tax
+  
+  document.getElementById('summaryProductPrice').innerText = itemSubtotal;
+  document.getElementById('summarySubtotal').innerText = itemSubtotal;
+  document.getElementById('summaryTotal').innerText = total;
+  document.getElementById('buttonPrice').innerText = total;
+}
+
+function togglePaymentSelect(radioInput) {
+  // Remove active class from all options
+  document.querySelectorAll('.payment-option').forEach(el => {
+    el.classList.remove('active');
+  });
+  
+  // Add active class to parent label
+  const parentLabel = radioInput.closest('.payment-option');
+  if (parentLabel) {
+    parentLabel.classList.add('active');
+  }
+  
+  // Update submit button text to reflect payment gateway
+  const payButton = document.getElementById('payButton');
+  const total = currentCheckoutItem.price * currentCheckoutItem.qty;
+  
+  let gatewayText = 'PhonePe';
+  if (radioInput.value === 'card') gatewayText = 'Secure Card';
+  else if (radioInput.value === 'netbanking') gatewayText = 'Net Banking';
+  
+  payButton.innerHTML = `<span>Pay ₹<span id="buttonPrice">${total}</span> via ${gatewayText}</span>`;
+}
+
+function processCheckout(event) {
+  event.preventDefault();
+  
+  // Basic validation checked by browser pattern and required attributes
+  const name = document.getElementById('checkoutName').value.trim();
+  const email = document.getElementById('checkoutEmail').value.trim();
+  const phone = document.getElementById('checkoutPhone').value.trim();
+  const address = document.getElementById('checkoutAddress').value.trim();
+  const pincode = document.getElementById('checkoutPincode').value.trim();
+  const city = document.getElementById('checkoutCity').value.trim();
+  const state = document.getElementById('checkoutState').value.trim();
+  
+  if (!name || !email || !phone || !address || !pincode || !city || !state) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  
+  // Show processing overlay
+  const processingOverlay = document.getElementById('checkoutProcessing');
+  const processingText = document.getElementById('processingText');
+  processingOverlay.classList.add('active');
+  
+  // Simulate PhonePe Gateway redirection and processing steps
+  setTimeout(() => {
+    processingText.innerText = 'Connecting to PhonePe Secure Gateway...';
+    setTimeout(() => {
+      processingText.innerText = 'Authorizing transaction...';
+      setTimeout(() => {
+        processingText.innerText = 'Completing payment...';
+        setTimeout(() => {
+          // Hide processing
+          processingOverlay.classList.remove('active');
+          
+          // Generate realistic Order ID
+          const orderId = 'EP-' + Math.floor(100000 + Math.random() * 900000);
+          const totalPaid = currentCheckoutItem.price * currentCheckoutItem.qty;
+          
+          // Setup success view
+          document.getElementById('successOrderId').innerText = orderId;
+          document.getElementById('successItemName').innerText = `${currentCheckoutItem.name} (Qty: ${currentCheckoutItem.qty})`;
+          document.getElementById('successAmount').innerText = totalPaid;
+          
+          // Show success view
+          document.getElementById('checkoutSuccess').classList.add('active');
+        }, 1000);
+      }, 1200);
+    }, 1000);
+  }, 800);
+}
+
+function closeCheckoutSuccess() {
+  document.getElementById('checkoutSuccess').classList.remove('active');
+  closeModal('checkoutModal');
 }
 
 // Close modal on ESC key

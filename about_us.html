@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Ehsan Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f7f3ec;
+  --forest:#1a3a2a;
+  --moss:#2d5a3d;
+  --sage:#7aab6e;
+  --gold:#c9a84c;
+  --water:#4fb8d4;
+  --text:#1e2a1e;
+  --text-light:#4a6352;
+  --black:#000000;
+  --gray:#6F6F6F;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--black);overflow-x:hidden}
+
+/* ===== FADE-RISE ANIMATIONS (STATIC) ===== */
+.animate-fade-rise,
+.animate-fade-rise-delay,
+.animate-fade-rise-delay-2{
+  opacity:1;
+  transform:none;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-wrapper{
+  position:relative;
+  min-height:100vh;
+  width:100%;
+  overflow:hidden;
+  background:#ffffff;
+}
+
+/* Video layer */
+.video-layer{
+  position:absolute;
+  inset:auto 0 0 0;
+  top:300px;
+  z-index:0;
+  overflow:hidden;
+}
+#heroVideo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:none;
+}
+
+/* Gradient overlays on video */
+.video-gradient-top{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,#ffffff 0%,transparent 50%,#ffffff 100%);
+  z-index:1;
+  pointer-events:none;
+}
+
+/* Nav */
+.hero-nav{
+  position:relative;
+  z-index:10;
+  padding:1.5rem 2rem;
+  max-width:80rem;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo-text{
+  font-family:'Instrument Serif',serif;
+  font-size:1.875rem;
+  letter-spacing:-0.025em;
+  color:#000000;
+  text-decoration:none;
+}
+.nav-logo-text sup{font-size:0.6em;vertical-align:super}
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  list-style:none;
+}
+.nav-menu a{
+  font-family:'Inter',sans-serif;
+  font-size:0.875rem;
+  text-decoration:none;
+  color:var(--gray);
+  transition:color 0.2s;
+}
+.nav-menu a:hover{color:#000}
+.nav-menu .active a{color:#000000}
+.nav-cta-btn{
+  font-family:'Inter',sans-serif;
+  font-size:0.875rem;
+  background:#000000;
+  color:#ffffff;
+  border:none;
+  padding:0.625rem 1.5rem;
+  border-radius:9999px;
+  cursor:pointer;
+  transition:transform 0.2s;
+  letter-spacing:0.01em;
+}
+.nav-cta-btn:hover{transform:scale(1.03)}
+
+/* Hero content */
+.hero-content{
+  position:relative;
+  z-index:10;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-left:1.5rem;
+  padding-right:1.5rem;
+  padding-top:calc(8rem - 75px);
+  padding-bottom:10rem;
+}
+.hero-headline{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2.8rem,8vw,6rem);
+  font-weight:400;
+  line-height:0.95;
+  letter-spacing:-0.046em;
+  color:#000000;
+  max-width:72rem;
+  margin:0 auto;
+}
+.hero-headline em{
+  font-style:italic;
+  color:var(--gray);
+}
+.hero-desc{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(0.95rem,2vw,1.125rem);
+  color:var(--gray);
+  max-width:42rem;
+  margin-top:2rem;
+  line-height:1.7;
+  font-weight:300;
+}
+.hero-cta{
+  font-family:'Inter',sans-serif;
+  font-size:1rem;
+  background:#000000;
+  color:#ffffff;
+  border:none;
+  padding:1.25rem 3.5rem;
+  border-radius:9999px;
+  cursor:pointer;
+  margin-top:3rem;
+  transition:transform 0.2s;
+  letter-spacing:0.01em;
+}
+.hero-cta:hover{transform:scale(1.03)}
+
+/* ===== PRODUCTS STRIP in hero ===== */
+.products-strip{
+  position:relative;
+  z-index:10;
+  display:flex;
+  justify-content:center;
+  gap:2.5rem;
+  flex-wrap:wrap;
+  padding:0 2rem 5rem;
+  margin-top:-2rem;
+}
+.product-pill{
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:20px;
+  padding:1.5rem;
+  display:flex;
+  align-items:center;
+  gap:1.2rem;
+  max-width:340px;
+  transition:transform 0.3s,box-shadow 0.3s;
+  cursor:pointer;
+}
+.product-pill:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.1);
+}
+.product-pill img{
+  width:80px;
+  height:100px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+.product-pill-info{}
+.product-pill-tag{
+  font-size:0.68rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:0.3rem;
+}
+.product-pill-name{
+  font-family:'Instrument Serif',serif;
+  font-size:1.25rem;
+  color:#000;
+  margin-bottom:0.3rem;
+}
+.product-pill-desc{
+  font-size:0.78rem;
+  color:var(--gray);
+  line-height:1.5;
+  font-weight:300;
+}
+.product-pill-badge{
+  display:inline-block;
+  margin-top:0.6rem;
+  background:#000;
+  color:#fff;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.3rem 0.8rem;
+  border-radius:9999px;
+}
+
+/* ===== TRUST STRIP ===== */
+.trust-strip{
+  background:#000;
+  padding:1rem 4vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:3rem;
+  flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  color:rgba(255,255,255,0.6);
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+}
+.trust-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ===== ABOUT ===== */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:70vh;
+}
+.about-visual{
+  position:relative;
+  background:#0e1f12;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:480px;
+}
+.about-img{width:100%;height:100%;object-fit:cover;display:block}
+.about-content{
+  padding:6rem 5vw;
+  background:var(--cream);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.section-label{
+  font-family:'Inter',sans-serif;
+  font-size:0.72rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:1rem;
+}
+.section-title{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:400;
+  line-height:1.1;
+  color:var(--forest);
+  margin-bottom:1.5rem;
+}
+.section-title em{font-style:italic;color:var(--moss)}
+.about-text{
+  color:var(--text-light);
+  line-height:1.9;
+  font-weight:300;
+  font-size:0.96rem;
+  margin-bottom:1.2rem;
+  font-family:'Inter',sans-serif;
+}
+.certs{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+.cert-badge{
+  border:1px solid rgba(42,90,61,0.3);
+  padding:0.4rem 0.9rem;
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--moss);
+  border-radius:9999px;
+  font-family:'Inter',sans-serif;
+}
+
+/* ===== PRODUCTS FULL ===== */
+.products{padding:6rem 4vw;background:#f9f6f1}
+.products-header{text-align:center;margin-bottom:4rem}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem;
+  max-width:900px;
+  margin:0 auto;
+}
+.product-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.4s,box-shadow 0.4s;
+  cursor:pointer;
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.1)}
+.product-img-wrap{
+  height:280px;
+  background:#f5f0e8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+}
+.product-img-wrap img{max-height:220px;max-width:100%;object-fit:contain;transition:transform 0.5s}
+.product-card:hover .product-img-wrap img{transform:scale(1.05)}
+.product-info{padding:1.5rem 1.8rem 2rem}
+.product-tag{
+  font-size:0.68rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:0.4rem;
+  font-family:'Inter',sans-serif;
+}
+.product-name{
+  font-family:'Instrument Serif',serif;
+  font-size:1.5rem;
+  color:#000;
+  margin-bottom:0.6rem;
+}
+.product-desc{
+  color:var(--gray);
+  font-size:0.87rem;
+  line-height:1.7;
+  font-weight:300;
+  margin-bottom:1.2rem;
+  font-family:'Inter',sans-serif;
+}
+.product-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:0.75rem;
+  color:var(--gray);
+  border-top:1px solid rgba(0,0,0,0.06);
+  padding-top:1rem;
+  font-family:'Inter',sans-serif;
+}
+.product-shop-btn{
+  background:#000;
+  color:#fff;
+  padding:0.4rem 1rem;
+  font-size:0.7rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  border:none;
+  border-radius:9999px;
+  cursor:pointer;
+  transition:opacity 0.2s;
+  font-family:'Inter',sans-serif;
+}
+.product-shop-btn:hover{opacity:0.75}
+
+/* ===== WHY US ===== */
+.why{padding:7rem 4vw;background:var(--forest);position:relative;overflow:hidden}
+.why::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 100%,rgba(122,171,110,0.08),transparent 70%);
+}
+.why-inner{position:relative;max-width:1100px;margin:0 auto}
+.why-header{text-align:center;margin-bottom:4rem}
+.why-header .section-label{color:rgba(122,171,110,0.7)}
+.why-header .section-title{color:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.why-card{
+  padding:2rem;
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;
+  transition:background 0.3s,border-color 0.3s;
+}
+.why-card:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.14)}
+.why-icon{width:44px;height:44px;margin-bottom:1.1rem}
+.why-card-title{
+  font-family:'Instrument Serif',serif;
+  font-size:1.25rem;
+  color:#fff;
+  margin-bottom:0.6rem;
+}
+.why-card-text{color:rgba(255,255,255,0.5);font-size:0.84rem;line-height:1.8;font-weight:300;font-family:'Inter',sans-serif}
+
+/* ===== PROCESS ===== */
+.process{padding:7rem 4vw;background:#fff}
+.process-inner{max-width:900px;margin:0 auto}
+.process-header{text-align:center;margin-bottom:4rem}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0}
+.process-step{text-align:center;padding:2rem 1.5rem;position:relative}
+.process-step:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:50%;width:1px;height:40%;
+  background:rgba(0,0,0,0.08);transform:translateY(-50%);
+}
+.step-num{
+  font-family:'Instrument Serif',serif;
+  font-size:3.5rem;
+  font-weight:400;
+  color:rgba(0,0,0,0.07);
+  line-height:1;
+  margin-bottom:0.5rem;
+}
+.step-title{
+  font-family:'Instrument Serif',serif;
+  font-size:1.1rem;
+  color:#000;
+  margin-bottom:0.5rem;
+}
+.step-text{color:var(--gray);font-size:0.82rem;line-height:1.7;font-weight:300;font-family:'Inter',sans-serif}
+
+/* ===== CTA BANNER ===== */
+.cta-banner{
+  padding:6rem 4vw;
+  background:#000;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(201,168,76,0.08),transparent 65%);
+  border-radius:50%;pointer-events:none;
+}
+.cta-banner .section-label{color:rgba(122,171,110,0.6)}
+.cta-banner .section-title{color:#fff;margin-bottom:1rem}
+.cta-banner p{color:rgba(255,255,255,0.45);font-size:0.95rem;font-weight:300;max-width:480px;margin:0 auto 2.5rem;font-family:'Inter',sans-serif}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-white{
+  background:#fff;color:#000;border:none;
+  padding:0.9rem 2.2rem;border-radius:9999px;
+  font-family:'Inter',sans-serif;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;transition:opacity 0.2s;
+}
+.btn-white:hover{opacity:0.88}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,0.6);
+  border:1px solid rgba(255,255,255,0.2);
+  padding:0.9rem 2.2rem;border-radius:9999px;
+  font-family:'Inter',sans-serif;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;
+  cursor:pointer;transition:border-color 0.2s,color 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:#fff}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#0a0a0a;
+  padding:3.5rem 4vw 1.5rem;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:3rem;
+}
+.footer-logo{
+  font-family:'Instrument Serif',serif;
+  font-size:1.4rem;
+  color:#fff;
+  display:block;
+  margin-bottom:0.8rem;
+}
+.footer-logo sup{font-size:0.6em}
+.footer-brand p{color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;font-family:'Inter',sans-serif}
+.footer-col h4{
+  font-family:'Inter',sans-serif;
+  font-size:0.68rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:1.1rem;
+}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:0.55rem}
+.footer-col a{
+  color:rgba(255,255,255,0.55);
+  text-decoration:none;
+  font-size:0.85rem;
+  transition:color 0.2s;
+  font-family:'Inter',sans-serif;
+  cursor:pointer;
+}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.05);
+  padding-top:1.5rem;
+  margin-top:1.5rem;
+  text-align:center;
+  color:rgba(255,255,255,0.2);
+  font-size:0.75rem;
+  grid-column:1/-1;
+  font-family:'Inter',sans-serif;
+}
+
+/* ===== MODALS ===== */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.8);
+  animation:fadeIn 0.3s ease;
+}
+.modal.active{display:flex;align-items:center;justify-content:center}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+.modal-content{
+  background-color:#f7f3ec;
+  padding:3rem;
+  border-radius:8px;
+  width:90%;
+  max-width:700px;
+  max-height:80vh;
+  overflow-y:auto;
+  position:relative;
+  animation:slideUp 0.3s ease;
+}
+@keyframes slideUp{
+  from{transform:translateY(50px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+.modal-close{
+  position:absolute;
+  right:1.5rem;
+  top:1.5rem;
+  font-size:2rem;
+  font-weight:bold;
+  color:var(--forest);
+  cursor:pointer;
+  background:none;
+  border:none;
+  transition:color 0.2s;
+}
+.modal-close:hover{color:var(--moss)}
+.modal-content h2{
+  color:var(--forest);
+  margin-bottom:1.5rem;
+  font-size:1.75rem;
+  font-family:'Instrument Serif',serif;
+}
+.modal-content h3{
+  color:var(--moss);
+  margin-top:1.5rem;
+  margin-bottom:1rem;
+  font-size:1.25rem;
+}
+.modal-content h4{
+  color:var(--moss);
+  margin-top:1.25rem;
+  margin-bottom:0.75rem;
+  font-size:1rem;
+  font-weight:600;
+}
+.modal-content p{
+  color:var(--text);
+  line-height:1.8;
+  margin-bottom:1rem;
+  font-size:0.95rem;
+}
+.modal-content ul{
+  margin-left:1.5rem;
+  margin-bottom:1rem;
+}
+.modal-content li{
+  color:var(--text);
+  margin-bottom:0.5rem;
+  line-height:1.6;
+}
+.modal-content strong{color:var(--forest)}
+
+/* ===== SCROLL REVEAL (STATIC) ===== */
+.reveal{opacity:1;transform:none}
+
+/* ===== CHECKOUT FLOW ===== */
+.checkout-modal-content {
+  max-width: 960px;
+  width: 95%;
+  padding: 2.5rem;
+  background-color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+.checkout-form-section h3, .checkout-summary-section h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5rem;
+  color: var(--forest);
+  border-bottom: 1px solid rgba(42,90,61,0.15);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.form-group {
+  margin-bottom: 1.1rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(26,58,42,0.08);
+}
+.form-group textarea {
+  height: 80px;
+  resize: vertical;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.payment-option:hover {
+  border-color: var(--sage);
+}
+.payment-option.active {
+  border-color: var(--forest);
+  background: rgba(26,58,42,0.02);
+}
+.payment-option input[type="radio"] {
+  accent-color: var(--forest);
+  width: 18px;
+  height: 18px;
+}
+.payment-option-details {
+  display: flex;
+  flex-direction: column;
+}
+.payment-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.payment-desc {
+  font-size: 0.72rem;
+  color: var(--gray);
+  margin-top: 0.15rem;
+}
+.phonepe-badge {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #5f259f;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+.checkout-submit-btn {
+  background: var(--forest);
+  color: #fff;
+  width: 100%;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.checkout-submit-btn:hover {
+  background: var(--moss);
+  transform: translateY(-1px);
+}
+
+/* Summary styles */
+.summary-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 1rem;
+}
+.summary-product-item {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.summary-product-img {
+  width: 60px;
+  height: 75px;
+  object-fit: contain;
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+.summary-product-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.summary-product-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+.summary-product-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.2rem;
+  color: #000;
+  margin-top: 0.15rem;
+}
+.summary-product-weight {
+  font-size: 0.7rem;
+  color: var(--gray);
+  margin-top: 0.1rem;
+}
+.qty-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+.qty-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.qty-btn:hover {
+  background: var(--cream);
+}
+.qty-val {
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-width: 15px;
+  text-align: center;
+}
+.summary-product-price {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000;
+  white-space: nowrap;
+}
+.summary-pricing-details {
+  padding: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.summary-price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+.free-shipping {
+  color: var(--sage);
+  font-weight: 500;
+}
+.total-row {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #000;
+  margin-top: 0.3rem;
+}
+.compliance-note {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin-top: 1.2rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--gray);
+}
+.secure-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--sage);
+  margin-top: 2px;
+}
+
+/* Processing Overlay */
+.checkout-processing-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(247,243,236,0.95);
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+.checkout-processing-overlay.active {
+  display: flex;
+}
+.spinner-container {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--forest);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+.double-bounce2 {
+  animation-delay: -1.0s;
+}
+@keyframes sk-bounce {
+  0%, 100% { transform: scale(0.0) }
+  50% { transform: scale(1.0) }
+}
+#processingText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--forest);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Success View */
+.checkout-success-view {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  z-index: 11;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  overflow-y: auto;
+}
+.checkout-success-view.active {
+  display: flex;
+}
+.success-checkmark {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+}
+.check-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid var(--sage);
+}
+.check-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--cream);
+}
+.icon-line {
+  height: 5px;
+  background-color: var(--sage);
+  display: block;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+}
+.line-tip {
+  width: 25px;
+  left: 14px;
+  top: 45px;
+  transform: rotate(45deg);
+}
+.line-long {
+  width: 47px;
+  right: 8px;
+  top: 38px;
+  transform: rotate(-45deg);
+}
+.icon-circle {
+  top: -4px;
+  left: -4px;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+}
+.checkout-success-view h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.2rem;
+  color: var(--forest);
+  margin-bottom: 0.5rem;
+}
+.success-order-id {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+}
+.success-msg {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 450px;
+  margin-bottom: 1.8rem;
+}
+.success-details-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 1.2rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+.success-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  color: var(--text-light);
+}
+.success-row:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.success-row strong {
+  color: #000;
+  font-size: 0.95rem;
+}
+.success-close-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.success-close-btn:hover {
+  opacity: 0.85;
+}
+
+/* Responsive adjustment for checkout modal grid */
+@media(max-width: 800px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .checkout-summary-section {
+    order: -1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .about{grid-template-columns:1fr}
+  .about-visual{min-height:300px}
+  footer{grid-template-columns:1fr}
+  .process-step:not(:last-child)::after{display:none}
+  .nav-menu{display:none}
+  .products-strip{gap:1.2rem}
+}
+@media(max-width:600px){
+  .hero-nav{padding:1rem}
+  .nav-cta-btn{display:none}
+  .products-strip{padding:0 1rem 3rem}
+  .product-pill{max-width:100%}
+}
+
+/* ===== FLOATING WHATSAPP FAB ===== */
+.fab-whatsapp {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: fabPulse 2.5s infinite;
+}
+.fab-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.18);
+  animation: none;
+}
+.fab-whatsapp svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+@keyframes fabPulse {
+  0%   { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.35); }
+  70%  { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0); }
+  100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0); }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="hero-nav" style="background:#0a0a0a; padding:1.5rem 2rem;">
+    <a href="index.html" class="nav-logo-text" style="color:#fff;">Ehsan<sup>®</sup></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li class="active"><a href="about_us.html" style="color:#fff;">About</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#contact">Reach Us</a></li>
+    </ul>
+    <button class="nav-cta-btn" style="background:#fff; color:#000;" onclick="window.location.href='products.html'">Shop Now</button>
+  </nav>
+
+  <!-- Store Header -->
+  <div style="background:var(--cream); padding:5rem 2rem 4rem; text-align:center;">
+    <p class="section-label" style="color:var(--sage); letter-spacing:0.25em; text-transform:uppercase; font-size:0.72rem; margin-bottom:1rem;">Our Heritage</p>
+    <h1 style="font-family:'Instrument Serif',serif; font-size:clamp(2.5rem,6vw,4.5rem); font-weight:400; line-height:1; color:var(--forest); max-width:55rem; margin:0 auto 1.5rem;">
+      Fifteen Years of <em>Ayurvedic Excellence</em> & Trusted Healing
+    </h1>
+    <p style="font-family:'Inter',sans-serif; font-size:1.05rem; color:var(--text-light); max-width:40rem; margin:0 auto; line-height:1.7; font-weight:300;">
+      From our humble beginnings, we have been committed to sourcing the purest herbal formulations to cultivate long-term healing, vitality, and well-being.
+    </p>
+  </div>
+
+  <!-- Metric Section -->
+  <section style="background:#fff; padding:4rem 4vw; border-bottom:1px solid rgba(0,0,0,0.06);">
+    <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:2rem;">
+      
+      <!-- Metric 1 -->
+      <div style="background:var(--cream); border:1px solid rgba(42,90,61,0.08); border-radius:16px; padding:2.5rem 2rem; text-align:center; transition:transform 0.3s; cursor:default;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+        <div style="font-family:'Instrument Serif',serif; font-size:3.5rem; color:var(--forest); line-height:1; margin-bottom:0.5rem;">15+ Years</div>
+        <h3 style="font-family:'Inter',sans-serif; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--moss); margin-bottom:1rem; font-weight:500;">Ayurvedic Legacy</h3>
+        <p style="font-family:'Inter',sans-serif; font-size:0.88rem; color:var(--text-light); line-height:1.6; font-weight:300;">Fifteen years of blending ancient scripts with modern laboratory protocols for safe, premium remedies.</p>
+      </div>
+
+      <!-- Metric 2 -->
+      <div style="background:var(--cream); border:1px solid rgba(42,90,61,0.08); border-radius:16px; padding:2.5rem 2rem; text-align:center; transition:transform 0.3s; cursor:default;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+        <div style="font-family:'Instrument Serif',serif; font-size:3.5rem; color:var(--forest); line-height:1; margin-bottom:0.5rem;">20,000+</div>
+        <h3 style="font-family:'Inter',sans-serif; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--moss); margin-bottom:1rem; font-weight:500;">Happy Customers & Users</h3>
+        <p style="font-family:'Inter',sans-serif; font-size:0.88rem; color:var(--text-light); line-height:1.6; font-weight:300;">A growing community of over twenty thousand individuals who trust Ehsan for their health and wellness needs.</p>
+      </div>
+
+      <!-- Metric 3 -->
+      <div style="background:var(--cream); border:1px solid rgba(42,90,61,0.08); border-radius:16px; padding:2.5rem 2rem; text-align:center; transition:transform 0.3s; cursor:default;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+        <div style="font-family:'Instrument Serif',serif; font-size:3.5rem; color:var(--forest); line-height:1; margin-bottom:0.5rem;">100%</div>
+        <h3 style="font-family:'Inter',sans-serif; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--moss); margin-bottom:1rem; font-weight:500;">Pure & Lab-Tested</h3>
+        <p style="font-family:'Inter',sans-serif; font-size:0.88rem; color:var(--text-light); line-height:1.6; font-weight:300;">Independent chemical testing and botanical audits confirm our promise of complete organic purity.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Philosophy & Certification Section -->
+  <section id="certs" style="background:#fcfaf7; padding:6rem 4vw;">
+    <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1.2fr 0.8fr; gap:4rem; align-items:center;">
+      
+      <div>
+        <p class="section-label" style="color:var(--sage); letter-spacing:0.25em; text-transform:uppercase; font-size:0.72rem; margin-bottom:1rem;">Our Philosophy</p>
+        <h2 style="font-family:'Instrument Serif',serif; font-size:2.8rem; font-weight:400; line-height:1.15; color:var(--forest); margin-bottom:1.5rem;">
+          Bridging Ancient <em>Natural Wisdom</em> with Rigorous Science
+        </h2>
+        <p style="font-family:'Inter',sans-serif; font-size:0.95rem; color:var(--text-light); line-height:1.8; margin-bottom:1.2rem; font-weight:300;">
+          Ehsan Products was founded with the vision to resurrect the true power of Ayurvedic healing. Every product we manufacture undergoes extensive ingredient validation, ensuring no hidden chemicals or synthetic fillers.
+        </p>
+        <p style="font-family:'Inter',sans-serif; font-size:0.95rem; color:var(--text-light); line-height:1.8; margin-bottom:2rem; font-weight:300;">
+          We harvest roots, flowers, bark, and seeds from pristine regions across the Indian subcontinent. By applying standardized temperature controls and sun-drying techniques, we ensure the vital bio-actives remain intact.
+        </p>
+        
+        <!-- Ownership Banner -->
+        <div style="border-left:4px solid var(--gold); background:rgba(201,168,76,0.05); padding:1.2rem 1.8rem; border-radius:4px;">
+          <p style="font-family:'Inter',sans-serif; font-size:0.95rem; font-weight:500; color:var(--forest); margin:0; line-height:1.5;">
+            This website is owned and managed by Ehsan Products.
+          </p>
+        </div>
+      </div>
+
+      <!-- Certification Badges Display -->
+      <div style="background:#fff; border:1px solid rgba(0,0,0,0.05); border-radius:16px; padding:3rem 2.5rem; box-shadow:0 15px 40px rgba(0,0,0,0.02);">
+        <h3 style="font-family:'Instrument Serif',serif; font-size:1.6rem; color:var(--forest); margin-bottom:1.8rem; text-align:center; font-weight:400;">Certified Standards</h3>
+        
+        <div style="display:flex; flex-direction:column; gap:1.2rem;">
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <div style="width:10px; height:10px; border-radius:50%; background:var(--gold); flex-shrink:0;"></div>
+            <span style="font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:var(--text);">GMP Certified Facility</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <div style="width:10px; height:10px; border-radius:50%; background:var(--gold); flex-shrink:0;"></div>
+            <span style="font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:var(--text);">ISO 9001 Approved</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <div style="width:10px; height:10px; border-radius:50%; background:var(--gold); flex-shrink:0;"></div>
+            <span style="font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:var(--text);">AYUSH Registered Formulas</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <div style="width:10px; height:10px; border-radius:50%; background:var(--gold); flex-shrink:0;"></div>
+            <span style="font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:500; color:var(--text);">100% Herbal & Chemical-Free</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-brand">
+      <span class="footer-logo">Ehsan<sup>®</sup> Products</span>
+      <p>Manufacturer & seller of certified herbal medicines rooted in Ayurvedic tradition. GMP certified, ISO approved. Made in India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="index.html#product-ayugra">Ayugra — Men's Wellness</a></li>
+        <li><a href="index.html#product-piles-cure-plus">Piles Cure Plus</a></li>
+        <li><a href="products.html">View All Products</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about_us.html">About Ehsan</a></li>
+        <li><a href="about_us.html#certs">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Policies</h4>
+      <ul>
+        <li><a href="#" onclick="openModal('shippingModal'); return false;">Shipping Policy</a></li>
+        <li><a href="#" onclick="openModal('privacyModal'); return false;">Privacy Policy</a></li>
+        <li><a href="#" onclick="openModal('refundModal'); return false;">Return & Refund Policy</a></li>
+        <li><a href="#" onclick="openModal('replacementModal'); return false;">Replacement Policy</a></li>
+        <li><a href="#" onclick="openModal('termsModal'); return false;">Terms & Conditions</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Ehsan Products. All rights reserved. · GMP Certified · ISO Approved · Made in India
+    </div>
+  </footer>
+
+  <!-- ===== POLICY MODALS ===== -->
+  <!-- Shipping Policy Modal -->
+  <div id="shippingModal" class="modal" onclick="closeModalOnBackground(event, 'shippingModal')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('shippingModal')">&times;</button>
+      <h2>Shipping Policy</h2>
+      <p>At Ehsan Products, we take pride in our service. To ensure your products arrive safely, please review our shipping guidelines below.</p>
+      
+      <h4>1. Delivery Timeframe</h4>
+      <p><strong>Standard Shipping:</strong> All orders are processed and shipped via our courier partners. Orders will be delivered within 5-7 business days to your doorstep.</p>
+      <p><strong>Processing Time:</strong> Orders are typically prepared for dispatch within 24–48 hours of your purchase. You will receive an email/SMS confirmation once your order is on its way.</p>
+      
+      <h4>2. Shipping Rates</h4>
+      <p>Shipping costs are calculated at checkout based on the weight of your order and your delivery location.</p>
+      <p>We charge a flat rate of ₹60 for shipping all over India.</p>
+      
+      <h4>3. Order Tracking</h4>
+      <p>Once your order has been shipped, we will provide you with a Tracking Number. You can use this to monitor your shipment's progress in real-time.</p>
+      
+      <h4>4. Packaging & Safety</h4>
+      <p>Because our products contain herbal ingredients and are sealed to preserve purity, we use specialized protective packaging to maintain temperature stability and prevent damage during transit.</p>
+      
+      <h4>5. Address Accuracy</h4>
+      <p>Please ensure your shipping address is entered correctly. Ehsan Products is not responsible for delayed or undelivered packages due to incorrect or incomplete address information provided at checkout.</p>
+      
+      <h4>6. Damaged Goods</h4>
+      <p>If your package arrives damaged, please take a photo immediately and contact us at <strong>support@ehsanproducts.com</strong> within 24 hours of delivery. We will prioritize sending you a fresh replacement.</p>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacyModal" class="modal" onclick="closeModalOnBackground(event, 'privacyModal')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+      <h2>Privacy Policy</h2>
+      <p><strong>Effective Date: June 24, 2026</strong></p>
+      <p>At Ehsan Products, we value your trust as much as we value our formulations. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our website.</p>
+      
+      <h3>1. Information We Collect</h3>
+      <p>When you make a purchase or attempt to make a purchase through Ehsan Products, we collect certain information from you, including:</p>
+      <ul>
+        <li><strong>Order Information:</strong> Name, billing address, shipping address, and payment information (including credit card numbers or UPI details).</li>
+        <li><strong>Contact Information:</strong> Email address and phone number.</li>
+        <li><strong>Device Information:</strong> We automatically collect certain information about your device, including your web browser, IP address, and time zone.</li>
+      </ul>
+      
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the Order Information that we collect generally to fulfill any orders placed through the site, which includes:</p>
+      <ul>
+        <li>Processing your payment information.</li>
+        <li>Arranging for shipping (sharing your address with our courier partners).</li>
+        <li>Providing you with invoices and/or order confirmations.</li>
+        <li>Communicating with you about your order status.</li>
+      </ul>
+      
+      <h3>3. Sharing Your Information</h3>
+      <p>We share your Personal Information with third parties only to help us use your information as described above. For example:</p>
+      <ul>
+        <li><strong>Logistics Partners:</strong> We share your name, address, and phone number with our delivery partners to ensure your products arrive within the 5-7 business days window.</li>
+        <li><strong>Payment Processors:</strong> Your payment details are processed through secure, encrypted gateways; we do not store your full payment card details on our servers.</li>
+      </ul>
+      
+      <h3>4. Data Retention</h3>
+      <p>When you place an order through Ehsan Products, we will maintain your Order Information for our records unless and until you ask us to delete this information.</p>
+      
+      <h3>5. Security</h3>
+      <p>We take reasonable precautions and follow industry best practices to make sure your personal information is not inappropriately lost, misused, accessed, disclosed, altered, or destroyed.</p>
+      
+      <h3>6. Your Rights</h3>
+      <p>If you would like to access, correct, amend, or delete any personal information we have about you, or simply want more information, please contact us at support@ehsanproducts.com.</p>
+      
+      <h3>7. Changes to This Policy</h3>
+      <p>We may update this privacy policy from time to time in order to reflect changes to our practices or for other operational, legal, or regulatory reasons.</p>
+      
+      <p><strong>Contact Us:</strong> For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at support@ehsanproducts.com.</p>
+    </div>
+  </div>
+
+  <!-- Return & Refund Policy Modal -->
+  <div id="refundModal" class="modal" onclick="closeModalOnBackground(event, 'refundModal')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('refundModal')">&times;</button>
+      <h2>Return & Refund Policy</h2>
+      <p>Thank you for shopping at Ehsan Products.</p>
+      
+      <h3>1. Return Policy</h3>
+      <p>We have 7-days return policy. If you are not entirely satisfied with your purchase, you can return the product within 7 days from the date of delivery. To be eligible for a return, the item must be unused, unopened, and in the same condition that you received it, with its original packaging intact.</p>
+      
+      <h3>2. Refund Policy</h3>
+      <p>Refund will be credited to original payment method within 5-7 business days after we receive and inspect the returned items. Once your return is received and inspected, we will notify you of the approval or rejection of your refund. If approved, the refund process will be initiated automatically.</p>
+      
+      <h3>3. Return Shipping</h3>
+      <p>To initiate a return, please contact our support team at <strong>support@ehsanproducts.com</strong>. We will guide you through the return shipment process.</p>
+    </div>
+  </div>
+
+  <!-- Replacement Policy Modal -->
+  <div id="replacementModal" class="modal" onclick="closeModalOnBackground(event, 'replacementModal')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('replacementModal')">&times;</button>
+      <h2>Replacement Policy</h2>
+      <p>At Ehsan Products, customer satisfaction is our top priority. We offer replacements under the following terms:</p>
+      
+      <h3>1. Defective or Damaged Products</h3>
+      <p>If you receive a defective, damaged, or incorrect product, you are eligible for a free replacement. Please request a replacement within 7 days of delivery by emailing us at <strong>support@ehsanproducts.com</strong> with your order number and photos of the product condition.</p>
+      
+      <h3>2. Delivery of Replacement</h3>
+      <p>Replacement orders will be delivered within 5-7 business days of your request being approved. There are no additional shipping charges for sending a replacement product.</p>
+      
+      <h3>3. Scope of Replacement</h3>
+      <p>Replacement is applicable only for products purchased directly from our website. Products must not be completely consumed or altered.</p>
+    </div>
+  </div>
+
+  <!-- Terms & Conditions Modal -->
+  <div id="termsModal" class="modal" onclick="closeModalOnBackground(event, 'termsModal')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+      <h2>Terms & Conditions</h2>
+      <p>This website is owned and managed by Ehsan Products. By accessing or using this website, you agree to be bound by these terms and conditions.</p>
+      
+      <h3>1. Terms of Use</h3>
+      <p>The content of the pages of this website is for your general information and use only. It is subject to change without notice. Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.</p>
+      
+      <h3>2. Pricing & Products</h3>
+      <p>All prices listed on the website are in Indian Rupees (INR) and are subject to change. We make every effort to display the products and pricing accurately, but errors may occur. In the event of an error, we reserve the right to cancel any orders placed for products listed at the incorrect price.</p>
+      
+      <h3>3. Payments & Security</h3>
+      <p>Payments are processed securely via our trusted payment gateways. You agree to provide current, complete, and accurate purchase and account information for all purchases made.</p>
+      
+      <h3>4. Governing Law & Jurisdiction</h3>
+      <p>These terms and conditions are governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with this website shall be subject to the exclusive jurisdiction of the courts in Delhi, India.</p>
+      
+      <h3>5. Intellectual Property</h3>
+      <p>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance, and graphics. Reproduction is prohibited other than in accordance with the copyright notice.</p>
+    </div>
+  </div>
+
+<script>
+// ====== MODAL FUNCTIONS ======
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+}
+
+function closeModalOnBackground(event, modalId) {
+  if (event.target.id === modalId) {
+    closeModal(modalId);
+  }
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    document.querySelectorAll('.modal.active').forEach(modal => {
+      modal.classList.remove('active');
+    });
+    document.body.style.overflow = 'auto';
+  }
+});
+</script>
+
+<!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+<a class="fab-whatsapp" href="https://wa.me/917447526013" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+</body>
+</html>
+
